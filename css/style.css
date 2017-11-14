@@ -1,0 +1,99 @@
+/****************/
+/*   GENERAL    */
+/****************/
+
+body {
+    background-color: black;
+    color: maroon;
+    margin: 10px;
+}
+
+
+
+/****************/
+/*  TIME-SLIDER */
+/****************/
+
+#time-slider-container {
+    height: 80vh;
+
+}
+
+#time-slider {
+    height:80%;
+    display: block;
+    margin: auto;
+    padding: 5px;
+}
+
+#time-slider-selection {
+    height: 20vh;
+}
+
+#controls-container {
+    width: 100%;
+    display: block;
+    margin: auto;
+    padding: 5px;
+}
+
+.controls {
+    display: inline-block;
+    text-align: center;
+}
+
+#time-selected {
+    text-align: center;
+    font-size: 4em;
+    display: block;
+    margin: auto;
+}
+
+
+
+
+/****************/
+/*     MAP      */
+/****************/
+
+#map {
+    height: 80vh;
+}
+
+#bucket {
+    height: 20vh;
+}
+
+
+.axis {
+    stroke: red;
+}
+
+path {
+    stroke: red;
+}
+
+svg {
+    border-color: black;
+}
+
+.d3-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+}
+
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
