@@ -4,6 +4,14 @@ var europeMap;
 // Start application by loading the data
 loadData();
 
+var data = [
+    {"country":"Poland","total":28333,"disease":11,"wounds":0,"other":6},
+    {"country":"Austria","total":28772,"disease":359,"wounds":0,"other":23},
+    {"country":"France","total":30246,"disease":828,"wounds":1,"other":30}
+]
+
+var keys = ["wounds", "other", "disease"];
+
 
 function loadData() {
 

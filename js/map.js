@@ -20,7 +20,7 @@ MapChart.prototype.initVis = function(){
     // * TO-DO *
     vis.margin = { top: 40, right: 0, bottom: 60, left: 60 };
 
-    vis.width = 1000,
+    vis.width = $(vis.parentElement).width(),
         vis.height = 800 - vis.margin.top - vis.margin.bottom;
 
     vis.mapCenter = [12, 50];
@@ -91,6 +91,10 @@ MapChart.prototype.updateVis = function(){
 
     vis.point
         .enter()
+        .append("g")
+        .append("a")
+        // Show that the point is clickable, change pointer
+        .attr("xlink:href", "#")
         .append("circle")
         .attr("class", "points")
         .attr("r", 7)
@@ -127,7 +131,11 @@ MapChart.prototype.updateVis = function(){
 MapChart.prototype.zoom = function(object) {
     var vis = this;
 
+    console.log(object);
+
     if (!vis.zoomed) {
+
+        $('#time-slider-container').css('opacity', '0');
 
         vis.zoomed = true;
 
@@ -148,10 +156,15 @@ MapChart.prototype.zoom = function(object) {
         vis.svg.selectAll(".popup")
             .transition().duration(2000)
             .style("opacity", 1)
-            .style("fill", "white")
+            .style("fill", "black")
             .style("stroke", "black");
 
-        vis.svg.append("rect")
+        vis.svg
+            .append("g")
+            .append("a")
+            // Show that the point is clickable, change pointer
+            .attr("xlink:href", "#")
+            .append("rect")
             .attr("class", "xout")
             .attr("x", vis.width - 60)
             .attr("y", 40)
@@ -159,6 +172,23 @@ MapChart.prototype.zoom = function(object) {
             .attr("height", 20)
             .style("fill", "transparent")
             .on("click", function() {vis.zoom(object)});
+
+        vis.svg.select(".popup")
+            .append("rect")
+            .attr("x", 20)
+            .attr("y", 20)
+            .attr("rx", 20)
+            .attr("ry", 20)
+            .attr("width", vis.width - 40)
+            .attr("height", vis.height - 40)
+            .attr("class", function() {
+                vis.classVis = "test-append";
+                return vis.classVis;
+            })
+            .each(function(d, i) {
+                createBarChart(d, vis.classVis);
+            });
+
 
         vis.svg.selectAll(".xout")
             .transition().duration(2000)
@@ -188,6 +218,8 @@ MapChart.prototype.zoom = function(object) {
             .transition().duration(2000)
             .style("opacity", 1)
             .style("stroke", "black");
+
+
         
     }
     else {
@@ -201,6 +233,9 @@ MapChart.prototype.zoom = function(object) {
         vis.svg.selectAll(".popup").remove();
         vis.svg.selectAll(".xout").remove();
         vis.svg.selectAll(".xout-line").remove();
+
+        $('#time-slider-container').css('opacity', '1');
+
     }
 
     vis.path.projection(vis.projection);
@@ -223,4 +258,10 @@ MapChart.prototype.zoom = function(object) {
 
 };
 
+createBarChart = function(object, className) {
+    console.log("activated function");
+
+    //var barchart = new BarChart(className, data, "test", keys);
+
+}
 

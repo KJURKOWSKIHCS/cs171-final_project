@@ -8,7 +8,7 @@ $("#time-slider").slider({
     range: "min",
     min: 1937,
     max: 1945,
-    value: 1941,
+    value: 1945,
     step: 2,
     slide: function(event, ui) {
         //$("#amount-backwards").val(1945 - ui.value + 1937);
@@ -39,6 +39,23 @@ $('#autoplay').on('click', function () {
     }, 2000);
 });
 
+$('#plus').on('click', function () {
+
+
+    var theYear = $("#time-slider").slider('value');
+
+    setValue( theYear - 2);
+});
+
+$('#minus').on('click', function () {
+
+
+    var theYear = $("#time-slider").slider('value');
+
+    setValue( theYear + 2);
+});
+
+
 // For the Set clickable values, we use variable theValue to supply value.
 function setValue(theValue) {
 
@@ -51,20 +68,3 @@ function setValue(theValue) {
     console.log(1945 - $("#time-slider").slider("value") + 1937)
 }
 
-
-// test stacked bar chart, put temporarily into map div
-// function init() {
-//
-//     var data = [
-//         {"country":"Poland","total":28333,"disease":11,"wounds":0,"other":6},
-//         {"country":"Austria","total":28772,"disease":359,"wounds":0,"other":23},
-//         {"country":"France","total":30246,"disease":828,"wounds":1,"other":30}
-//     ]
-//
-//     var keys = ["wounds", "other", "disease"];
-//
-//     var barchart = new BarChart("map", data, "test", keys);
-//
-// }
-//
-// init();

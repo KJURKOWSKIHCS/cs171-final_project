@@ -29,13 +29,15 @@ BarChart.prototype.initVis = function(){
 
     // Set up dimensions
     vis.margin = { top: 40, right: 100, bottom: 60, left: 100 };
-    vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right;
+    // vis.width = $("." + vis.parentElement).width() - vis.margin.left - vis.margin.right;
+    vis.width = 800 - vis.margin.left - vis.margin.right;
+    console.log("parent element is ." + vis.parentElement);
     vis.height = 400 - vis.margin.top - vis.margin.bottom;
 
 
 
     // Create new svg
-    vis.svg_bar = d3.select("#" + vis.parentElement).append("svg")
+    vis.svg_bar = d3.select("." + vis.parentElement).append("svg")
         .attr("width", vis.width + vis.margin.left + vis.margin.right)
         .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
         .append("g")

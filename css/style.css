@@ -5,7 +5,8 @@
 body {
     background-color: black;
     color: maroon;
-    margin: 10px;
+    /*margin: 10px;*/
+    font-family: Righteous;
 }
 
 
@@ -26,20 +27,21 @@ body {
     padding: 5px;
 }
 
-#time-slider-selection {
-    height: 20vh;
-}
+/*#time-slider-selection {*/
+    /*height: 20vh;*/
+/*}*/
 
 #controls-container {
     width: 100%;
     display: block;
     margin: auto;
-    padding: 5px;
+    padding: 10px;
 }
 
 .controls {
     display: inline-block;
     text-align: center;
+    background-color: darkgray;
 }
 
 #time-selected {
@@ -49,6 +51,50 @@ body {
     margin: auto;
 }
 
+.above{
+    position: absolute;
+    left:80vw;
+    padding:20px;
+}
+
+.behind{
+    width:100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.pulsate {
+    -webkit-animation: pulsate 2s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    opacity: 0.5;
+}
+@-webkit-keyframes pulsate {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1.0;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.ui-slider .ui-slider-range {
+    background-color: maroon!important;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover,
+html .ui-button.ui-state-disabled:active {
+    border: 2px solid #c5c5c5!important;
+    background: black!important;
+
+}
+
+.ui-widget-content {
+    background: crimson!important;
+}
 
 
 
@@ -97,3 +143,105 @@ svg {
     position: absolute;
     text-align: center;
 }
+
+
+
+
+
+#fillgauge {
+    position: absolute;
+    top: 80vh;
+}
+
+
+
+
+a {color:#333; text-decoration:none}
+a:hover {color:#ccc; text-decoration:none}
+
+#mask-title {
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:9000;
+    background-color:#000;
+    display:none;
+}
+
+#mask-info {
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:9000;
+    background-color:#000;
+    display:none;
+}
+#boxes .window {
+    position:absolute;
+    left:0;
+    top:0;
+    width:440px;
+    height:200px;
+    display:none;
+    z-index:9999;
+    padding:20px;
+}
+#boxes #dialog {
+    width:2000px;
+    height:1000px;
+    padding:10px;
+    background-color:#000000;
+}
+
+.opening-mask-title-container {
+
+    /*line-height: 80vh;*/
+}
+
+.opening-mask-centered {
+    position: fixed; /* or absolute */
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    vertical-align: middle;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+
+#opening-mask-title {
+    color: maroon;
+    font-size: 5em;
+}
+
+
+.opening-mask-info {
+    color: maroon;
+    font-size: 3em;
+
+}
+
+.opening-mask-centered>.btn {
+    background-color: black;
+    color: maroon;
+    border: 0px;
+}
+
+.opening-mask-centered>.btn:hover {
+    background-color: maroon;
+    color: white;
+    border: 0px;
+}
+
+.opening-mask-centered>.btn:active, .opening-mask-centered>.btn:focus {
+    background-color: maroon;
+    color: white;
+    border: 0px;
+    outline: none!important;
+}
+
+
+
+
+
+

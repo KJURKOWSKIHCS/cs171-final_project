@@ -2,6 +2,7 @@
 
 -Stacked Bar Chart: https://bl.ocks.org/caravinden/32a3d192e0e5f6af81f4bcc12adda8f7
 -Slider: https://jqueryui.com/slider/#slider-vertical
+-Mask Inspiration: https://github.com/codrops/FullscreenOverlayStyles
 
 
 
@@ -19,37 +20,63 @@
     <!--<link rel="stylesheet" href="css/bootstrap-slider.min.css">-->
     <link rel="stylesheet" href="css/jquery-ui.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Righteous" />
     <link rel="stylesheet" href="css/style.css">
 
 
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="col-md-3">
-                <div id="time-slider-container" class="row-fluid">
-                    <div id="controls-container">
-                        <button class=".btn controls" id="minus">-</button>
-                        <button class=".btn controls" id="autoplay">Start Journey</button>
-                        <button class=".btn controls" id="plus">+</button>
-                    </div>
-                    <div id="time-slider"></div>
-                </div>
-                <div id="time-slider-selection" class="row-fluid">
-                    <div id="time-selected"></div>
-                </div>
-            </div>
-            <div class="col-md-9" id="europe-map"></div>
-        </div>
-        <div class="row-fluid">
-            <div class="col-md-3"></div>
-            <div class="col-md-9" id="liquid-container">
-                <svg id="fillgauge" width="1000" height="200"></svg>
+
+    <div style="display: none; opacity: 1;" id="mask-info">
+        <div class="opening-mask-centered">
+            <div class="opening-mask-info">
+                In the 1940's, an Evil known as the Holocaust befell the world. Millions of innocent humans were killed, while a few luckily escaped death and survived. Here are their stories.
             </div>
         </div>
     </div>
 
+    <div style="display: none; opacity: 1;" id="mask-title">
+        <div class="opening-mask-centered">
+            <div id="opening-mask-title">
+                In the Eyes of A Survivor
+            </div>
+            <button type="button" class="btn btn-default">Start the Journey</button>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+
+            <div id="europe-map" class="behind"></div>
+
+            <div id="time-slider-container" class="above">
+                <div id="time-slider-selection">
+                    <div id="time-selected" class="pulsate"></div>
+                </div>
+                <div id="controls-container">
+                    <button class=".btn controls" id="minus">-</button>
+                    <button class=".btn controls" id="autoplay">Start Journey</button>
+                    <button class=".btn controls" id="plus">+</button>
+                </div>
+                <div id="time-slider"></div>
+            </div>
+
+        </div>
+
+        <div class="row-fluid">
+            <div id="liquid-container"></div>
+            <svg id="fillgauge" width="1000" height="200"></svg>
+        </div>
+
+        <div id="test"></div>
+
+    </div>
+
 <!-- Load JS libraries -->
+
+
+<!--Installed Libraries-->
 <script src="js/libs/jquery.min.js"></script>
 <script src="js/libs/bootstrap.min.js"></script>
 <script src="js/libs/queue.min.js"></script>
@@ -59,6 +86,11 @@
 <script src="js/libs/d3-tip.js"></script>
 <!--<script src="js/libs/bootstrap-slider.min.js"></script>-->
 <script src="js/libs/jquery-ui.min.js"></script>
+
+<!-- JS Helpers -->
+<script src="js/helpers.js"></script>
+<script src="js/mask.js"></script>
+
 
     <!--Legend Library from our D3 Book-->
 <script src="js/libs/d3-legend.min.js"></script>
@@ -73,8 +105,7 @@
 <script src="js/map.js"></script>
 <script src="js/liquidFillGauge.js"></script>
 
-<!-- JS Helpers -->
-<script src="js/helpers.js"></script>
+
 <!--./End Load JS libraries -->
 
 <!-- Extraneous Scripts -->
