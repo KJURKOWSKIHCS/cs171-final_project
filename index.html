@@ -2,7 +2,8 @@
 
 -Stacked Bar Chart: https://bl.ocks.org/caravinden/32a3d192e0e5f6af81f4bcc12adda8f7
 -Slider: https://jqueryui.com/slider/#slider-vertical
-
+-Mask Inspiration: https://github.com/codrops/FullscreenOverlayStyles
+-Modals guidance: https://getbootstrap.com/docs/3.3/javascript/
 
 
 -->
@@ -19,37 +20,411 @@
     <!--<link rel="stylesheet" href="css/bootstrap-slider.min.css">-->
     <link rel="stylesheet" href="css/jquery-ui.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Righteous" />
     <link rel="stylesheet" href="css/style.css">
 
 
 </head>
 <body>
-    <div class="container-fluid">
+
+<!--Opening Mask-->
+<div style="display: none; opacity: 1;" id="mask-info">
+    <div class="opening-mask-centered">
+        <div class="opening-mask-info">
+            In the 1940's, the Nazi regime came to power and started what was known as the Holocaust. Millions of innocent victims and families were killed, while a few luckily escaped death and survived. Here are some of their stories.
+        </div>
+    </div>
+</div>
+
+<div style="display: none; opacity: 1;" id="mask-title">
+    <div class = container-fluid>
         <div class="row-fluid">
-            <div class="col-md-3">
-                <div id="time-slider-container" class="row-fluid">
-                    <div id="controls-container">
-                        <button class=".btn controls" id="minus">-</button>
-                        <button class=".btn controls" id="autoplay">Start Journey</button>
-                        <button class=".btn controls" id="plus">+</button>
-                    </div>
-                    <div id="time-slider"></div>
-                </div>
-                <div id="time-slider-selection" class="row-fluid">
-                    <div id="time-selected"></div>
-                </div>
+            <div class="col-lg-3">
+                <div class="tracking_pic_1"></div>
             </div>
-            <div class="col-md-9" id="europe-map"></div>
+            <div class="col-lg-3">
+                <div class="tracking_pic_2"></div>
+
+            </div>
+            <div class="col-lg-3">
+                <div class="tracking_pic_3"></div>
+
+            </div>
+            <div class="col-lg-3">
+                <div class="tracking_pic_4"></div>
+            </div>
         </div>
         <div class="row-fluid">
-            <div class="col-md-3"></div>
-            <div class="col-md-9" id="liquid-container">
-                <svg id="fillgauge" width="1000" height="200"></svg>
+            <div class="opening-mask-centered">
+                <div id="opening-mask-title">
+                    In the Eyes of A Survivor
+                </div>
+                <button type="button" id="startJourney" class="btn btn-default">Start the Journey</button>
             </div>
         </div>
     </div>
+</div>
+<!--End Opening Mask-->
+
+<!--
+<!--Generic Concentration camp click modal-->
+<div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div id="schemaFill" class="modal-dialog modal-lg" role="document">
+
+        </div>
+    </div>
+
+</div>
+<!--End Generic Concentration Camp click modal-->
+
+<!--Map Instructions modal-->
+<div>
+    <div class="modal fade" id="instructionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row-fluid">
+                            <ul>
+                                <li>
+                                    Start your journey by pressing plus or minus or manually moving year by year on the slider
+                                </li>
+                                <li>
+                                    Paths of Holocaust victims will appear as the years progress
+                                </li>
+                                <li>
+                                    Interact with the events and camps by hovering and clicking
+                                </li>
+                                <li>
+                                    Finish the journey by clicking "Finish Journey"
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="modalClose">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Map Instructions modal-->
+
+<!--Body Content-->
+<div class="container-fluid">
+    <div class="row-fluid">
+
+        <div id="europe-map" class="behind"></div>
+
+        <div id="mapLegend" class="above-legend"></div>
+
+        <div id="time-slider-container" class="above-slider">
+            <div id="time-slider-selection">
+                <div id="time-selected" class="pulsate"></div>
+            </div>
+            <div id="controls-container">
+                <button class=".btn controls" id="minus">-</button>
+                <!--<button class=".btn controls" id="autoplay">&#9658;</button>-->
+                <!--<button class=".btn controls" id="pause">&#10074;&#10074;</button>-->
+                <button class=".btn controls" id="plus">+</button>
+            </div>
+            <div id="time-slider">
+                <ul id="years" style="list-style-type:none">
+                    <li style="color:white">-1912</li>
+                    <li style="color:transparent">1913</li>
+                    <li style="color:white">-1914</li>
+                    <li style="color:transparent">1915</li>
+                    <li style="color:transparent">1916</li>
+                    <li style="color:transparent">1917</li>
+                    <li style="color:transparent">1918</li>
+                    <li style="color:transparent">1919</li>
+                    <li style="color:transparent">1920</li>
+                    <li style="color:transparent">1921</li>
+                    <li style="color:transparent">1922</li>
+                    <li style="color:transparent">1923</li>
+                    <li style="color:white">-1924</li>
+                    <li style="color:white">-1925</li>
+                    <li style="color:transparent">1926</li>
+                    <li style="color:transparent">1927</li>
+                    <li style="color:transparent">1928</li>
+                    <li style="color:transparent">1929</li>
+                    <li style="color:white">-1930</li>
+                    <li style="color:transparent">1931</li>
+                    <li style="color:white">-1932</li>
+                    <li style="color:transparent">1933</li>
+                    <li style="color:transparent">1934</li>
+                    <li style="color:transparent">1935</li>
+                    <li style="color:transparent">1936</li>
+                    <li style="color:transparent">1937</li>
+                    <li style="color:white">-1938</li>
+                    <li style="color:transparent">1939</li>
+                    <li style="color:white">-1940</li>
+                    <li style="color:white">-1941</li>
+                    <li style="color:white">-1942</li>
+                    <li style="color:white">-1943</li>
+                    <li style="color:white">-1944</li>
+                    <li style="color:white">-1945</li>
+                </ul>
+            </div>
+            <div id="controls-container">
+                <button class=".btn controls finish" id="finishJourney">Finish Journey</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!--Closing Mask-->
+<div style="display: none; opacity: 1;" id="mask-closing-info">
+    <div class="opening-mask-centered">
+        <div class="opening-mask-info">
+            These numbers have only been estimates. The actual death tolls in the camps were much larger, ranging from hundreds of thousands to millions.
+        </div>
+    </div>
+</div>
+
+<div style="display: none; opacity: 1;" id="mask-closing-title">
+    <div class = container-fluid>
+        <div class="row-fluid">
+            <div class="col-lg-6">
+                <div class="picHolder_1">
+                    <a href="#"><img class="tracking_pic_close_1" src="img/profile/hillesum_profile.PNG" onclick="handlePicFade1()" \></a>
+                </div>
+                <div class="summaryHolder_1">
+                    <a href="#" onclick="handleSummaryFade1()"><div class="summary_1">
+                        <h1>Etty Hillesum, <span style="color: maroon">Victim</span></h1>
+                        <ul>
+                            <li>
+                                January 1914: Born in small town on Middelburg
+                            </li>
+                            <li>
+                                1924: Hillesum grew up in Deventer, a small city in the east of the Netherlands.
+                            </li>
+                            <li>
+                                1932: Took her first degree in law in Amsterdam and then enrolled in the faculty of Slavonic Languages to study Russian
+                            </li>
+                            <li>
+                                March 1941: Starts her diary when the Germans occupy the Netherlands for nearly one year.
+                            </li>
+                            <li>
+                                July 1942: Took on administrative duties for the Jewish Council
+                            </li>
+                            <li>
+                                1942: Personal status was suddenly revoked and she became a camp internee along with her father, mother and brother Mischa
+                            </li>
+                            <li>
+                                September 1943: Family were deported from Westerbork to Auschwitz
+                            </li>
+                            <li>
+                                November 1943: Etty died in Auschwitz
+                            </li>
+                        </ul>
+                    </div></a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="picHolder_2">
+                    <a href="#"><img class="tracking_pic_close_2" src="img/profile/mandrowitz_profile.PNG" onclick="handlePicFade2()" \></a>
+                </div>
+                <div class="summaryHolder_2">
+                    <a href="#" onclick="handleSummaryFade2()"><div class="summary_2">
+                        <h1>Joseph Mandrowitz, <span style="color: yellow">Survivor</span></h1>
+                        <ul>
+                            <li class="summaryList">
+                                1925: Born in Czermierniki, Poland on a ranch
+                            </li>
+                            <li class="summaryList">
+                                May 1943: Ranch was taken over by SS and Joseph ended up working for them
+                            </li>
+                            <li>
+                                May 1943: Joseph was sent to Majdanek Prisoner Camp
+                            </li>
+                            <li>
+                                June 1943: Sent to Auschwitz
+                            </li>
+                            <li>
+                                1943: Ends up in a hospital where he was a victim of the experiments of Joseph Mengele
+                            </li>
+                            <li>
+                                1944: Joseph was sent on a death march to Sachenhausen-Oranienburg
+                            </li>
+                            <li>
+                                December 1944: Arrives at Buchenwald Labor Camp
+                            </li>
+                            <li>
+                                1945: Joseph was transported to Theresienstadt by a cargo train
+                            </li>
+                            <li>
+                                May 1945: Joseph is liberated by the Soviets
+                            </li>
+                            <li>
+                                Post war: Moves to U.S. where he stayed until his death on May 9, 2016
+                            </li>
+                        </ul>
+                    </div></a>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="col-lg-6">
+                <div class="picHolder_3">
+                    <a href="#"><img class="tracking_pic_close_3" src="img/profile/weiss_profile.PNG" onclick="handlePicFade3()" \></a>
+                </div>
+                <div class="summaryHolder_3">
+                    <a href="#" onclick="handleSummaryFade3()"><div class="summary_3">
+                        <h1>Irene Weiss, <span style="color: yellow">Survivor</span></h1>
+                        <ul>
+                            <li class="summaryList">
+                                November 1930: Born on in Bótrágy, Czechoslovakia,
+                            </li>
+                            <li class="summaryList">
+                                1938: Bótrágy becomes part of Germany-allied Hungary, and Jewish Irene is kicked out school
+                            </li>
+                            <li>
+                                April 1944: Irene and her family was moved to ghetto in Munkacs, where they lose all their possessions
+                            </li>
+                            <li>
+                                May 1944: Family transported to Auschwitz, and Irene's mother and three younger siblings are immediately killed
+                            </li>
+                            <li>
+                                January 1945: Sent on death march to Ravensbruck
+                            </li>
+                            <li>
+                                February 1945: SS transported Irene and sisters to Neustadt-Glewe, where one sister became ill and was killed
+                            </li>
+                            <li>
+                                May 1945: Liberated by Soviet soldiers, moves to US after war, and now lives in Virginia, USA.
+                            </li>
+                        </ul>
+                    </div></a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="picHolder_4">
+                    <a href="#"><img class="tracking_pic_close_4" src="img/profile/gorath_profile.PNG" onclick="handlePicFade4()" \></a>
+                </div>
+                <div class="summaryHolder_4">
+                    <a href="#" onclick="handleSummaryFade4()"><div class="summary_4">
+                        <h1>Karl Gorath, <span style="color: maroon">Victim</span></h1>
+                        <ul>
+                            <li class="summaryList">
+                                Born in Bad Zwishenahn in northern Germany
+                            </li>
+                            <li class="summaryList">
+                                Family moves to port of Bremerhaven
+                            </li>
+                            <li>
+                                Karl was arrested and send to concentration camp in Neuengamme for homosexuality
+                            </li>
+                            <li>
+                                Transferred to work at the prisoner hospital at the Wittenberg subcamp
+                            </li>
+                            <li>
+                                Refused to decrease rations for Polish prisoners. As punishment, he was sent to Auschwitz
+                            </li>
+                            <li>
+                                Karl was liberated in Auschwitz in 1945
+                            </li>
+                        </ul>
+                    </div></a>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="opening-mask-centered">
+                <div class="buttonContainer">
+                    <button type="button" id="startJourneyOver" class="btn btn-default">Start the Journey Over</button>
+                </div>
+                <div class="buttonContainer">
+                    <button type="button" id="downloadData" class="btn btn-default" onclick="window.open('https://www.dropbox.com/sh/k1oe1zpd0f7grat/AAAObzEcjjmRSsiPtL0W-4SUa?dl=0')">Download our Data</button>
+                </div>
+                <div class="buttonContainer">
+                    <button type="button" id="meetCreators" class="btn btn-default">Meet the Creators</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Closing Mask-->
+
+<!--Closing Instructions-->
+<div>
+    <div class="modal fade" id="instructionEndModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row-fluid">
+                            Click on the photos to see a summary of the survivors and victims you tracked on the map
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="modalClose">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Closing Instructions-->
+
+<!--Meet the Creators-->
+<div>
+    <div class="modal fade" id="creatorsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row-fluid">
+                            <div class="col-lg-12">
+                                <div class="divHolder">
+                                    <div class="col-lg-4">
+                                        <figure class="divHolder">
+                                            <img src="img/creators/krystian.PNG" width="100px"/>
+                                            <figcaption class="text-center">Krystian<br>Jurkowski</figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <figure class="divHolder">
+                                            <img src="img/creators/karen.jpg" width="100px"/>
+                                            <figcaption class="text-center">Karen<br>Mardini</figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <figure class="divHolder">
+                                            <img src="img/creators/oskar.PNG" width="100px"/>
+                                            <figcaption class="text-center">Oskar<br>Kocol</figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <h2 class="text-center">Thanks for visiting!</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="modalClose">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Meet the Creators-->
+
+<!--End Body Content-->
+
 
 <!-- Load JS libraries -->
+
+<!--Installed Libraries-->
 <script src="js/libs/jquery.min.js"></script>
 <script src="js/libs/bootstrap.min.js"></script>
 <script src="js/libs/queue.min.js"></script>
@@ -60,7 +435,13 @@
 <!--<script src="js/libs/bootstrap-slider.min.js"></script>-->
 <script src="js/libs/jquery-ui.min.js"></script>
 
-    <!--Legend Library from our D3 Book-->
+<!-- JS Helpers -->
+<script src="js/helpers.js"></script>
+<script src="js/mask.js"></script>
+<script src="js/finishingMask.js"></script>
+
+
+<!--Legend Library from our D3 Book-->
 <script src="js/libs/d3-legend.min.js"></script>
 
 <!--Scrolling for Bookmarks Libraries-->
@@ -68,19 +449,20 @@
 <script src="js/libs/jquery.scrollTo.min.js" type="text/javascript"></script>
 
 <!-- Visualizations -->
+<script src="js/modalSchemas.js"></script>
 <script src="js/vis-stackedbarchart-v2.js"></script>
 <script src="js/vis-timeslider.js"></script>
 <script src="js/map.js"></script>
+<script src="js/StackChart.js"></script>
 <script src="js/liquidFillGauge.js"></script>
 
-<!-- JS Helpers -->
-<script src="js/helpers.js"></script>
+<!-- Extraneous Scripts -->
+<script src="data/auschwitz_ethnicities.js"></script>
+
+
 <!--./End Load JS libraries -->
 
-<!-- Extraneous Scripts -->
-<script type="text/javascript">
-    d3.select("#fillgauge").call(d3.liquidfillgauge, 66);
-</script>
+
 
 </body>
 </html>

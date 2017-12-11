@@ -5,7 +5,8 @@
 body {
     background-color: black;
     color: maroon;
-    margin: 10px;
+    /*margin: 10px;*/
+    font-family: Righteous;
 }
 
 
@@ -13,6 +14,16 @@ body {
 /****************/
 /*  TIME-SLIDER */
 /****************/
+
+#years {
+    margin-top: -13px;
+    margin-left: -25px;
+}
+
+#years li {
+    height: 1.813vh;
+
+}
 
 #time-slider-container {
     height: 80vh;
@@ -26,20 +37,41 @@ body {
     padding: 5px;
 }
 
-#time-slider-selection {
-    height: 20vh;
-}
+/*#time-slider-selection {*/
+/*height: 20vh;*/
+/*}*/
 
 #controls-container {
     width: 100%;
-    display: block;
+    display: inline-block;
     margin: auto;
-    padding: 5px;
+    padding: 10px;
+    text-align: center;
 }
 
 .controls {
     display: inline-block;
     text-align: center;
+    background-color: darkgray;
+    font-size: 15px;
+}
+
+.controls:hover {
+    background-color: black;
+    color: white;
+}
+
+.finish {
+    display: block;
+    margin: auto;
+    text-align: center;
+    background-color: darkgray;
+    font-size: 15px;
+}
+
+.finish:hover {
+    background-color: black;
+    color: white;
 }
 
 #time-selected {
@@ -49,6 +81,66 @@ body {
     margin: auto;
 }
 
+.above-legend {
+    position: absolute;
+    left: 3vw;
+    padding: 20px;
+    width: 20px;
+}
+
+.above-slider{
+    position: absolute;
+    left:80vw;
+    padding:20px;
+}
+
+.behind{
+    width:100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.ui-slider-tick-mark{
+    display:inline-block;
+    width:2px;
+    background:black;
+    height:16px;
+    position:absolute;
+    top:-4px;
+}
+
+.pulsate {
+    -webkit-animation: pulsate 2s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    opacity: 0.5;
+}
+@-webkit-keyframes pulsate {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1.0;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.ui-slider .ui-slider-range {
+    background-color: maroon!important;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover,
+html .ui-button.ui-state-disabled:active {
+    border: 2px solid #c5c5c5!important;
+    background: black!important;
+
+}
+
+.ui-widget-content {
+    background: crimson!important;
+}
 
 
 
@@ -77,23 +169,519 @@ svg {
     border-color: black;
 }
 
+
 .d3-tip {
-    line-height: 1;
     font-weight: bold;
-    padding: 12px;
     background: rgba(0, 0, 0, 0.8);
     color: #fff;
-    border-radius: 2px;
+    border-radius: 1px;
+    z-index: 999999999999;
+    pointer-events: none;
+    line-height: 1.2;
+    padding: 6px;
 }
 
-.d3-tip:after {
-    box-sizing: border-box;
-    display: inline;
-    font-size: 10px;
-    width: 100%;
-    line-height: 1;
-    color: rgba(0, 0, 0, 0.8);
-    content: "\25BC";
+/*!* Creates a small triangle extender for the tooltip *!*/
+/*.d3-tip:after {*/
+/*box-sizing: border-box;*/
+/*display: inline;*/
+/*font-size: 10px;*/
+/*width: 100%;*/
+/*line-height: 1;*/
+/*color: rgba(0, 0, 0, 0.8);*/
+/*content: "\25BC";*/
+/*position: absolute;*/
+/*text-align: center;*/
+/*}*/
+
+/*!* Style northward tooltips differently *!*/
+/*.d3-tip.n:after {*/
+/*margin: -1px 0 0 0;*/
+/*top: 100%;*/
+/*left: 0;*/
+/*}*/
+
+
+
+
+
+#fillgauge {
     position: absolute;
+    top: 80vh;
+}
+
+#tipPicture {
+    margin: auto;
+    display: block;
     text-align: center;
+    padding: 5px;
+}
+
+.eventTip {
+    background-color: #ccc;
+    opacity: 0.5;
+    color: #333;
+    border: 1px solid maroon;
+}
+
+/****************/
+/*   OPEN-MASK  */
+/****************/
+
+a {color:#333; text-decoration:none}
+a:hover {color:#ccc; text-decoration:none}
+
+#mask-title {
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:9000;
+    background-color:#000;
+    display:none;
+}
+
+#mask-info {
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:9000;
+    background-color:#000;
+    display:none;
+}
+#boxes .window {
+    position:absolute;
+    left:0;
+    top:0;
+    width:440px;
+    height:200px;
+    display:none;
+    z-index:9999;
+    padding:20px;
+}
+#boxes #dialog {
+    width:2000px;
+    height:1000px;
+    padding:10px;
+    background-color:#000000;
+}
+
+.opening-mask-title-container {
+
+    /*line-height: 80vh;*/
+}
+
+.opening-mask-centered {
+    position: fixed; /* or absolute */
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    vertical-align: middle;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+
+#opening-mask-title {
+    color: maroon;
+    font-size: 5em;
+}
+
+
+.opening-mask-info {
+    color: maroon;
+    font-size: 3em;
+
+}
+
+.opening-mask-centered>.btn {
+    background-color: black;
+    color: maroon;
+    border: 0px;
+}
+
+.opening-mask-centered>.btn:hover {
+    background-color: maroon;
+    color: white;
+    border: 0px;
+}
+
+.opening-mask-centered>.btn:active, .opening-mask-centered>.btn:focus {
+    background-color: maroon;
+    color: white;
+    border: 0px;
+    outline: none!important;
+}
+
+.tracking_pic_1 {
+    padding: 20px;
+    display: none;
+    opacity: 1;
+    border: 2px solid maroon;
+    border-radius: 25px;
+    background: url("../img/profile/hillesum_profile.PNG")  center/200px 200px no-repeat;
+    width: 200px;
+    height: 200px;
+    position: fixed; /* or absolute */
+    text-align: center;
+    vertical-align: middle;
+    /* bring your own prefixes */
+    transform: translate(50%, 50%);
+}
+
+
+.tracking_pic_2 {
+    padding: 20px;
+    display: none;
+    opacity: 1;
+    border: 2px solid maroon;
+    border-radius: 25px;
+    background: url("../img/profile/mandrowitz_profile.PNG") center/200px 200px no-repeat;
+    width: 200px;
+    height: 200px;
+    position: fixed; /* or absolute */
+    text-align: center;
+    vertical-align: middle;
+    /* bring your own prefixes */
+    transform: translate(50%, 50%);
+}
+
+
+.tracking_pic_3 {
+    padding: 20px;
+    display: none;
+    opacity: 1;
+    border: 2px solid maroon;
+    border-radius: 25px;
+    background: url("../img/profile/weiss_profile.PNG")  center/200px 200px no-repeat;
+    width: 200px;
+    height: 200px;
+    position: fixed; /* or absolute */
+    text-align: center;
+    vertical-align: middle;
+    transform: translate(50%, 50%);
+
+    /* bring your own prefixes */
+}
+
+
+.tracking_pic_4 {
+    padding: 20px;
+    display: none;
+    opacity: 1;
+    border: 2px solid maroon;
+    border-radius: 25px;
+    background: url("../img/profile/gorath_profile.PNG")  center/200px 200px no-repeat;
+    width: 200px;
+    height: 200px;
+    position: fixed; /* or absolute */
+    text-align: center;
+    vertical-align: middle;
+    /* bring your own prefixes */
+    transform: translate(50%, 50%);
+}
+
+
+
+/****************/
+/*  CLOSE-MASK  */
+/****************/
+
+
+#mask-closing-title {
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:9000;
+    background-color:#000;
+    display:none;
+}
+
+#mask-closing-info {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9000;
+    background-color: #000;
+    display: none;
+}
+
+.tracking_pic_close_1 {
+    display: none;
+    opacity: 1;
+    border: 2px solid maroon;
+    border-radius: 25px;
+    width: 300px;
+    height: 300px;
+}
+
+
+.tracking_pic_close_2 {
+    display: none;
+    opacity: 1;
+    border: 2px solid maroon;
+    border-radius: 25px;
+    width: 300px;
+    height: 300px;
+}
+
+
+.tracking_pic_close_3 {
+    display: none;
+    opacity: 1;
+    border: 2px solid maroon;
+    border-radius: 25px;
+    width: 300px;
+    height: 300px;
+}
+
+
+.tracking_pic_close_4 {
+    display: none;
+    opacity: 1;
+    border: 2px solid maroon;
+    border-radius: 25px;
+    width: 300px;
+    height: 300px;
+}
+
+.picHolder {
+    padding: 5vh;
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+    height:40vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.picHolder_4, .picHolder_3, .picHolder_2, .picHolder_1 {
+    padding: 5vh;
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+    height:40vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.summary_4, .summary_3, .summary_2, .summary_1 {
+    display: none;
+    color: #ccc;
+    font-size: 15px;
+}
+
+.summary_4:hover, .summary_3:hover, .summary_2:hover, .summary_1:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.buttonContainer {
+    padding: 10px;
+}
+
+.summaryHolder {
+    padding: 5vh;
+    display:table-cell;
+    vertical-align:middle;
+    height:40vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.summaryHolder_4, .summaryHolder_3, .summaryHolder_2, .summaryHolder_1 {
+    padding: 5vh;
+    display:table-cell;
+    vertical-align:middle;
+    height:40vh;
+    margin-left: 10vh;
+    margin-right: auto;
+    display: block;
+}
+
+/****************/
+/*     MODAL    */
+/****************/
+
+
+/*@media screen and (min-width: 992px) {*/
+/*.modal-lg {*/
+/*width: 950px; !* New width for large modal *!*/
+/*}*/
+/*}*/
+
+.modal-lg {
+    width: 90vw;
+    height: 100vh;
+}
+
+#eventPictureObject {
+    width: 40vw;
+}
+
+#instructionModal {
+    position: absolute;
+    top: 20%;
+    font-size: 20px;
+}
+
+#instructionEndModal {
+    position: absolute;
+    top: 20%;
+    font-size: 20px;
+    z-index: 9999999999999;
+}
+
+/*.creatorContainer {*/
+/*padding-left: 10vw;*/
+/*}*/
+
+#creatorsModal {
+    position: absolute;
+    top: 20%;
+    font-size: 20px;
+    z-index: 9999999999999;
+}
+
+.divHolder {
+    margin: auto;
+    display: block;
+
+}
+
+figure.divHolder>img {
+    border: 2px solid transparent;
+    border-radius: 25px;
+    margin: auto;
+    display: block;
+}
+
+.divHolder>.col-lg-4 {
+    padding: 20px!important;
+}
+
+
+
+#factGeneratorContainer {
+    margin: auto;
+    width: 80vw;
+}
+
+#factTab {
+    background-color: black;
+    color: white;
+}
+
+#factGenerator.btn {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    margin: 30px auto auto auto;
+    display: block;
+}
+
+#factGenerator.btn:hover {
+    background-color: maroon;
+    color: white;
+    border: 1px solid white;
+}
+
+.nav-tabs>li.active>a.factTabLink {
+    background-color: black!important;
+    color: maroon!important;
+}
+
+.nav-tabs>li.active>a.factTabLink:focus, .nav-tabs>li>a.factTabLink:hover {
+    color: white;
+    background-color: black;
+}
+
+#factGenerator.btn:active, #factTab>.btn:focus {
+    background-color: maroon;
+    color: white;
+    border: 0px;
+    outline: none!important;
+}
+
+#content {
+    padding: 30px;
+    font-size: 20px;
+    width: 40vw;
+    height: 300px;
+    margin: auto;
+    display: block;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.fadeInText {
+    opacity: 1;
+    animation-name: fadeInOut;
+    animation-duration: 3s;
+}
+
+#campType, #countryToday, #operationDates,
+#estDeaths, #estPrisoners, #totalYears {
+    padding: 10px;
+    font-size: 15px;
+}
+
+#campType:hover, #countryToday:hover, #operationDates:hover,
+#estDeaths:hover, #estPrisoners:hover, #totalYears:hover {
+    font-size: 30px;
+}
+
+
+/********************************/
+/* Horizontal Stacked Bar Chart */
+/********************************/
+
+/*.toolTip {*/
+/*position: absolute;*/
+/*display: none;*/
+/*min-width: 80px;*/
+/*height: auto;*/
+/*background: none repeat scroll 0 0 #ffffff;*/
+/*border: 1px solid #6F257F;*/
+/*padding: 14px;*/
+/*text-align: center;*/
+/*}*/
+
+.tooltip {
+    z-index: 9999999;
+}
+
+#visInfoEthnicity {
+    font-size: 20px;
+    color: black;
+    text-align: center;
+}
+
+#visInfoDeportedText {
+    font-size: 20px;
+    color: black;
+}
+
+#visInfoKilledText {
+    font-size: 20px;
+    color: maroon;
+}
+
+/********************************/
+/*  Vertical Stacked Bar Chart  */
+/********************************/
+
+.stack_chart, .stack_chart_later, #stack-chart, #stack-chart-later {
+    height: 60vh;
+    width: 70vw;
 }

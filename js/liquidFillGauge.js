@@ -3,6 +3,9 @@
  * Copyright (c) 2015, Curtis Bratton
  * All rights reserved.
  */
+
+var updateVal;
+var fromPercent;
 (function(d3) {
     var idGenerator = (function() {
         var count = 0;
@@ -29,23 +32,22 @@
         gradientToColor: "#000",
 
         // Waves
-        waveHeight: 0.02, // The wave height as a percentage of the radius of the wave circle.
-        waveCount: 4, // The number of full waves per width of the wave circle.
+        waveHeight: 0.005, // The wave height as a percentage of the radius of the wave circle.
+        waveCount: 7, // The number of full waves per width of the wave circle.
         waveOffset: 0, // The amount to initially offset the wave. 0 = no offset. 1 = offset of one full wave.
 
         // Animations
         waveRise: true, // Control if the wave should rise from 0 to it's full height, or start at it's full height.
-        waveRiseTime: 700, // The amount of time in milliseconds for the wave to rise from 0 to it's final height.
+        waveRiseTime: 3000, // The amount of time in milliseconds for the wave to rise from 0 to it's final height.
         waveRiseAtStart: true, // If set to false and waveRise at true, will disable only the initial animation
         waveAnimate: true, // Controls if the wave scrolls or is static.
-        waveAnimateTime: 14000, // The amount of time in milliseconds for a full wave to enter the wave circle.
+        waveAnimateTime: 4000, // The amount of time in milliseconds for a full wave to enter the wave circle.
         waveHeightScaling: true, // Controls wave size scaling at low and high fill percentages. When true, wave height reaches it's maximum at 50% fill, and minimum at 0% and 100% fill. This helps to prevent the wave from making the wave circle from appear totally full or empty when near it's minimum or maximum fill.
         valueCountUp: true, // If true, the displayed value counts up from 0 to it's final value upon loading and updating. If false, the final value is displayed.
-        valueCountUpAtStart: true, // If set to false and valueCountUp at true, will disable only the initial animation
+        valueCountUpAtStart: true // If set to false and valueCountUp at true, will disable only the initial animation
 
     };
 
-    console.log(d3);
 
     d3.liquidfillgauge = function(g, value, settings) {
         // Handle configuration
@@ -61,9 +63,10 @@
             var width = config.get("width") !== 0 ? config.get("width") : parseInt(gauge.style("width"));
             var height = config.get("height") !== 0 ? config.get("height") : parseInt(gauge.style("height"));
             var radius = width/2;
-            var locationX = width / 2 - radius;
-            var locationY = height - radius;
+            var locationX = 0;
+            var locationY = -150;
             var fillPercent = Math.max(config.get("minValue"), Math.min(config.get("maxValue"), value)) / config.get("maxValue");
+
 
             var waveHeightScale;
             if (config.get("waveHeightScaling")) {
@@ -111,7 +114,8 @@
 
             // Center the gauge within the parent
             var gaugeGroup = gauge.append("g")
-                .attr('transform', 'translate(' + locationX + ',' + locationY + ')');
+                .attr('transform', 'translate(' + locationX + ',' + locationY + ')')
+                .attr("class", "fill-gauge-cont");
 
 
             // The clipping wave area.
@@ -137,13 +141,15 @@
                 .attr("d", clipArea);
 
             // The inner circle with the clipping wave attached.
+
+            console.log($(europeMap.parentElement).width());
             var fillCircleGroup = gaugeGroup.append("g")
                 .attr("clip-path", "url(#" + clipId + ")");
             fillCircleGroup.append("rect")
                 .attr("x", 0)
-                .attr("y", 300)
-                .attr("width", 1000)
-                .attr("height", 150);
+                .attr("y", 800)
+                .attr("width", function() {return $(europeMap.parentElement).width()})
+                .attr("height", 200);
 
 
             fillCircleGroup.style("fill", config.get("waveColor"));
@@ -172,13 +178,15 @@
 
                 // Update the wave
                 toPercent = Math.max(config.get("minValue"), Math.min(config.get("maxValue"), to)) / config.get("maxValue");
-                fromPercent = Math.max(config.get("minValue"), Math.min(config.get("maxValue"), from)) / config.get("maxValue");
+                //fromPercent = Math.max(config.get("minValue"), Math.min(config.get("maxValue"), from)) / config.get("maxValue");
 
                 if (riseWave) {
                     waveGroup.attr('transform', 'translate(' + waveGroupXPosition + ',' + waveRiseScale(fromPercent) + ')')
                         .transition()
                         .duration(config.get("waveRiseTime"))
                         .attr('transform', 'translate(' + waveGroupXPosition + ',' + waveRiseScale(toPercent) + ')');
+
+                    fromPercent = toPercent;
                 } else {
                     waveGroup.attr('transform', 'translate(' + waveGroupXPosition + ',' + waveRiseScale(toPercent) + ')');
                 }
@@ -193,9 +201,10 @@
 
             // Event to update the value
             gauge.on("valueChanged", function(newValue) {
-                transition(value, newValue, config.get("waveRise"), config.get("valueCountUp"));
-                value = newValue;
+                transition(value, updateVal, config.get("waveRise"), config.get("valueCountUp"));
+                value = updateVal;
             });
+
 
             gauge.on("destroy", function() {
                 // Stop all the transitions
