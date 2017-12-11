@@ -37,21 +37,23 @@ Text labels and connectors attached to event points are also implemented using t
 
 Each camp is a rectangle that is attached to camp data (along with location, name, and other various information). The standard enter update exit d3 pattern is used. On a mouseover, a tool tip showing base info shows up, as well as a glow to make it clear which camp is being hovered over. Rectangles can be clicked to bring up modal popups which contain images and more information about the camps and their events. Auschwitz especially, which is the larger rectangle, has specialized information about its captives, including ethnicity and origin info.
 
-# Custom Visualization - Path Tracking Interactive Map
+# Custom Visualization
+
+##Path Tracking Interactive Map
 
 Our main visualization consists of the interactive map, which is the main view of the project. Here the user can explore the various paths of the survivors and victims, and see how their life journey progressed and was altered because of the Holocaust. In turn, a user can see the opening of concentration camps, and view the deaths of the Holocaust as the years progress. Each symbol on the map is interactive and provides more data, with a special focus on Auschwitz having its own interactive visualizations inside the camp modal.
 
-# Custom Visualization – Auschwitz by Ethnicities
+## Auschwitz by Ethnicities
 
 This visualization is located inside the Auschwitz modal on click of the Auschwitz concentration camp. It aims to show in a stacked bar chart the various ethnicities of people who came into Auschwitz, and the grim fact of how many of them died in comparison.
 
-# Custom Visualization – Auschwitz by Arrivals
+## Auschwitz by Arrivals
 
 This visualization is also located inside the Auschwitz modal on click of the Auschwitz concentration camp. The goal of this visualization is to show the arrivals of various ethnic groups by month to Auschwitz, split up into the early and later stages of the Auschwitz camp, where a spike in arrivals deliminates these stages.
 
-# Custom Visualization – Death Toll Collector
+## Death Toll Collector
 
-## Pool:
+### Pool:
 
 The main feature of the death toll collector is the liquid fill gauge placed at the bottom of the SVG that houses the map. While they were originally in separate SVGs, in order to allow for an uninterrupted path of the teardrop for a point representing a concentration camp into the actual fill gauge, the layout was modified to give the appearance of dripping.
 
@@ -60,7 +62,7 @@ Code for the liquid fill gauge was adapted from code from Curtis Bratton: http:/
 
 With changes made to the originally circular gauges to make the clip path rectangular instead of circular, to remove textual elements, to modify dimensions, and to adapt wave heights, speeds, and colors.
 
-## Drops:
+### Drops:
 
 A drop is made by manually specifying the points which are connected by lines, arcs and curves. Each drop is added as a d3 path element and is bound to the concentration camp data, including coordinates for longitude and latitude. The topmost starting tip of each tear is centered at the center of each concentration camp square, with a helper function which generates random numbers within a range to give the impression of a smattering of drops of blood, such that they don’t all begin from the same point. A final destination for each point in the drop is specified (with the origin offset by a random number so that not all drops fall down completely vertically) and a transition is called on the drops, from their beginning to their final location so that they move downwards smoothly, as if falling. When drops fall, the update gauge function is called, updating the height of the liquid fill gauge to reflect the number of total deaths to date.
 
