@@ -39,7 +39,7 @@ Each camp is a rectangle that is attached to camp data (along with location, nam
 
 # Custom Visualization
 
-##Path Tracking Interactive Map
+## Path Tracking Interactive Map
 
 Our main visualization consists of the interactive map, which is the main view of the project. Here the user can explore the various paths of the survivors and victims, and see how their life journey progressed and was altered because of the Holocaust. In turn, a user can see the opening of concentration camps, and view the deaths of the Holocaust as the years progress. Each symbol on the map is interactive and provides more data, with a special focus on Auschwitz having its own interactive visualizations inside the camp modal.
 
