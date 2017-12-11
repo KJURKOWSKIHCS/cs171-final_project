@@ -32,10 +32,14 @@ var maskClosingTitle = function() {
     $('#instructionEndModal').modal('toggle');
 
     // sets window to fade out
-    $('#startJourneyOver').click(function(){
+    $('button#startJourneyOver').click(function(){
         window.setTimeout(function() {
             $('#mask-closing-title').fadeOut(100);
         }, 0);
+        setValue( 1945 );
+        europeMap.wrangleData(1912);
+        europeMap.updateGauge(1912);
+        currVal = 1912;
         $('#instructionModal').modal('toggle');
 
         $('#instructionModal').on('hidden.bs.modal', function (e) {
@@ -44,7 +48,7 @@ var maskClosingTitle = function() {
         });
     });
 
-    $('#meetCreators').click(function() {
+    $('button#meetCreators').click(function() {
         $('#creatorsModal').modal('toggle');
     });
 
