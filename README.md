@@ -13,6 +13,7 @@ We focus on the paths of these individuals and their stories to show a human con
 # Project components
 A major component of the project is interaction on the map itself. On the map are dynamic paths of survivors that update with pink and red circle events as years go by when using the time slider, along with blue square concentration camps that show up on the year they were opened. Every circle and square on the map itself is interactive, and provides the user with more information than at first glance. A simple hover over a blue square camp provides basic information, like its year of opening and location, while a hover over a pink or red circle shows the name of the person, the location, and basic info about the event. 
 
+## Modals
 These are all able to be clicked on, which provides interactive popup modals with additional information for the user. These modals vary depending on the symbol clicked on the map and its type. For example, when clicking on a blue square concentration camp, a user will be shown a screen with detailed information on the camp, such as dates of operation, camp type, amount of prisoners and deaths, and so on. If the user clicks on the highlighted blue square camp known as Auschwitz, more data will be available in the modal, as Auschwitz was a well-documented concentration camp, and also the most gruesome. Here a user will be met with basic info on the camp as well, but will also have tabs to explore that provide interactive visualizations on various data metrics for the camp. One tab will explore Auschwitz by its ethnical makeup, while two others will break down Auschwitz by arrivals, while both show the immense numbers of people brought into these camps, and the large number that died there. A fact generator tab will also allow users to explore various facts about this most famous concentration camp. In turn, if a user clicks on a red or pink circle….
 
 ## Modal schemas
@@ -36,7 +37,17 @@ Text labels and connectors attached to event points are also implemented using t
 
 Each camp is a rectangle that is attached to camp data (along with location, name, and other various information). The standard enter update exit d3 pattern is used. On a mouseover, a tool tip showing base info shows up, as well as a glow to make it clear which camp is being hovered over. Rectangles can be clicked to bring up modal popups which contain images and more information about the camps and their events. Auschwitz especially, which is the larger rectangle, has specialized information about its captives, including ethnicity and origin info.
 
+# Custom Visualization - Path Tracking Interactive Map
 
+Our main visualization consists of the interactive map, which is the main view of the project. Here the user can explore the various paths of the survivors and victims, and see how their life journey progressed and was altered because of the Holocaust. In turn, a user can see the opening of concentration camps, and view the deaths of the Holocaust as the years progress. Each symbol on the map is interactive and provides more data, with a special focus on Auschwitz having its own interactive visualizations inside the camp modal.
+
+# Custom Visualization – Auschwitz by Ethnicities
+
+This visualization is located inside the Auschwitz modal on click of the Auschwitz concentration camp. It aims to show in a stacked bar chart the various ethnicities of people who came into Auschwitz, and the grim fact of how many of them died in comparison.
+
+# Custom Visualization – Auschwitz by Arrivals
+
+This visualization is also located inside the Auschwitz modal on click of the Auschwitz concentration camp. The goal of this visualization is to show the arrivals of various ethnic groups by month to Auschwitz, split up into the early and later stages of the Auschwitz camp, where a spike in arrivals deliminates these stages.
 
 # Custom Visualization – Death Toll Collector
 
