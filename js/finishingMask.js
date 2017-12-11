@@ -29,7 +29,7 @@ var maskClosingTitle = function() {
     $('#mask-closing-title').fadeIn(1000);
     $('#mask-closing-title').fadeTo(3000,0.8).delay(3000);
 
-    $('#instructionEndModal').modal('toggle');
+    $('#instructionEndModal').modal('show');
 
     // sets window to fade out
     $('button#startJourneyOver').click(function(){
@@ -40,7 +40,7 @@ var maskClosingTitle = function() {
         europeMap.wrangleData(1912);
         europeMap.updateGauge(1912);
         currVal = 1912;
-        $('#instructionModal').modal('toggle');
+        $('#instructionModal').modal('show');
 
         $('#instructionModal').on('hidden.bs.modal', function (e) {
             //$("#autoplay").delay(1000).click();
@@ -49,7 +49,7 @@ var maskClosingTitle = function() {
     });
 
     $('button#meetCreators').click(function() {
-        $('#creatorsModal').modal('toggle');
+        $('#creatorsModal').modal('show');
     });
 
 
