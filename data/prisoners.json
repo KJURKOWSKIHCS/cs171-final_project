@@ -1,0 +1,610 @@
+[
+  {
+    "Name":"Irene",
+    "Surname": "Fogel Weiss",
+    "Nationality": "Jewish",
+    "Birth_date": "1930-11-21",
+    "Birth_place":"Bótrágy",
+    "Death_date":"Na",
+    "Picture":"weiss-1.jpeg",
+    "Geopoints":[
+      {
+        "Name": "Irene",
+        "Surname": "Weiss",
+        "index":"0",
+        "max_index":"7",
+        "died": "false",
+        "Place_name":"Bótrágy",
+        "Lat":"48.322778",
+        "Long":"22.4125",
+        "Profile_picture": "weiss_profile.PNG",
+        "Event_date":"1930-11-21",
+        "Description":"Irene Fogel Weiss was born on November 21, 1930 in Bótrágy, Czechoslovakia, now Batrad, Ukraine.",
+        "Source":"https://www.theguardian.com/world/2015/jan/26/tales-from-auschwitz-survivor-stories",
+        "Photo_links":
+        [
+          {
+            "File_name":"weiss-1.jpeg",
+            "Source":"",
+            "Photo_description":"Photo: Irene Weiss"
+          }
+        ]
+      },
+      {
+        "Name": "Irene",
+        "Surname": "Weiss",
+        "index":"1",
+        "max_index":"7",
+        "died": "false",
+        "Place_name":"Bótrágy",
+        "Lat":"48.322778",
+        "Long":"22.4125",
+        "Profile_picture": "weiss_profile.PNG",
+        "Event_date":"1938-11-11",
+        "Description":"Czechoslovakia broke and Bótrágy became part of Hungary. Hungarians were allied with Nazis and Irene's father's lumber business was confiscated and given to a non-Jew. Irene, as a Jewish child, was kicked out of school.",
+        "Source":"https://www.theguardian.com/world/2015/jan/26/tales-from-auschwitz-survivor-stories",
+        "Photo_links":
+        [
+          {
+            "File_name":"weiss-1.jpeg",
+            "Source":"",
+            "Photo_description":"Photo: Irene Weiss"
+          }
+        ]
+      },
+      {
+        "Name": "Irene",
+        "Surname": "Weiss",
+        "index":"2",
+        "max_index":"7",
+        "died": "false",
+        "Place_name":"Munkacs",
+        "Lat":"48.45",
+        "Long":"22.75",
+        "Profile_picture": "weiss_profile.PNG",
+        "Event_date":"1944-04-01",
+        "Description":"Irene and her family was moved to ghetto in Munkacs, today Mukachevo, Ukraine. This is how Irene describes the night before being moved to Munkacs Ghetto: I remember the night of the packing very well. Things went in the suitcase, things were taken out of the suitcase. In the end my mother filled it with food she had cooked and warm clothing and bedding. Then it was full. Plus we took a watch, some earrings, a wedding ring with us to exchange for food if necessary. The next day my father was forced to hand over his remaining money to a delegation that included the mayor and the school principal as they rounded us up at the town hall.",
+        "Source":"https://www.theguardian.com/world/2015/jan/26/tales-from-auschwitz-survivor-stories",
+      "Photo_links":
+        [
+          {
+            "File_name":"munkacs.jpg",
+            "Source":"http://www.yadvashem.org/yv/en/exhibitions/communities/munkacs/ghetto.asp",
+            "Photo_description":"A Hungarian gendarme checks a woman entering the Munkács ghetto"
+          }
+        ]
+      },
+      {
+        "Name": "Irene",
+        "Surname": "Weiss",
+        "index":"3",
+        "max_index":"7",
+        "died": "false",
+        "Place_name":"Auschwitz",
+        "Lat":"50.035833",
+        "Long":"19.178333",
+        "Profile_picture": "weiss_profile.PNG",
+        "Event_date":"1944-05-01",
+        "Description":"In May 1944, nearly 425,000 Jews were deported from Hungary to Auschwitz-Birkenau, including Irene and her family. Irene was 13 years old. Upon arrival at the camp, her mother, three younger siblings, and older brother were killed. SS authorities selected Irene and her sister Serena for forced labor, while their father was forced to work as a Sonderkommando, removing corpses from the gas chambers and cremating them.",
+        "Source":"https://www.ushmm.org/remember/office-of-survivor-affairs/survivor-volunteer/irene-fogel-weiss",
+        "Photo_links":
+        [
+          {
+            "File_name":"weiss-2.jpeg",
+            "Source":"https://medium.com/@HolocaustMuseum/powerful-photos-from-auschwitz-seen-through-a-survivors-eyes-1ffc85631bc1",
+            "Photo_description":"The selection process upon arrival to Auschwitz-Birkenau in German-occupied Poland. Irene is second from the left in the bottom corner."
+          },
+          {
+            "File_name":"weiss-3.png",
+            "Source":"https://medium.com/@HolocaustMuseum/powerful-photos-from-auschwitz-seen-through-a-survivors-eyes-1ffc85631bc1",
+            "Photo_description":"Irene’s younger brothers Reuven (second from left) and Gershon (third from left) and mother Leah (fourth from left) in holding area before being sent to the gas chambers at Auschwitz-Birkenau in 1944."
+          }
+        ]
+      },
+      {
+        "Name": "Irene",
+        "Surname": "Weiss",
+        "index":"4",
+        "max_index":"7",
+        "died": "false",
+        "Place_name":"Auschwitz",
+        "Lat":"50.035833",
+        "Long":"19.178333",
+        "Profile_picture": "weiss_profile.PNG",
+        "Event_date":"1945-01-17",
+        "Description":"On January 17, 1945, Weiss and her sisters and aunt were forced out of the compound on a death march to Ravensbruck. ",
+        "Source":"https://www.haaretz.com/jewish/.premium-1.639102",
+        "Photo_links":
+        [
+          {
+            "File_name":"weiss-4.jpg",
+            "Source":"https://upload.wikimedia.org/wikipedia/en/6/69/Death_march_from_Dachau.jpg",
+            "Photo_description":"Dachau concentration camp inmates on a death march, April 1945, photographed walking through a German village, heading in the direction of Wolfratshausen, Bavaria."
+          }
+        ]
+      },
+      {
+        "Name": "Irene",
+        "Surname": "Weiss",
+        "index":"5",
+        "max_index":"7",
+        "died": "false",
+        "Place_name":"Ravensbruck",
+        "Lat":"53.189",
+        "Long":"13.17",
+        "Profile_picture": "weiss_profile.PNG",
+        "Event_date":"1945-01-27",
+        "Description":"Irene arrived at Ravensbruck and three weeks later, the SS transported them to Neustadt-Glewe, a subcamp of Ravensbrück, east of Hamburg. There Piri became ill and was killed.",
+        "Source":"https://www.ushmm.org/remember/office-of-survivor-affairs/survivor-volunteer/irene-fogel-weiss",
+        "Photo_links":
+        [
+          {
+            "File_name":"weiss-5.jpg",
+            "Source":"https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_183-1985-0417-15,_Ravensbr%C3%BCck,_Konzentrationslager.jpg#/media/File:Bundesarchiv_Bild_183-1985-0417-15,_Ravensbr%C3%BCck,_Konzentrationslager.jpg",
+            "Photo_description":"Women working in Ravensburg concentration camp."
+          }
+        ]
+      },
+      {
+        "Name": "Irene",
+        "Surname": "Weiss",
+        "index":"6",
+        "max_index":"7",
+        "died": "false",
+        "Place_name":"Neustadt-Glewe",
+        "Lat":"53.366667",
+        "Long":"11.583333",
+        "Profile_picture": "weiss_profile.PNG",
+        "Event_date":"1945-02-07",
+        "Description":"Irene arrive at Neustadt-Glewe, a subcamp of Ravensbrück where she spent the rest of the war.",
+        "Source":"https://www.ushmm.org/remember/office-of-survivor-affairs/survivor-volunteer/irene-fogel-weiss",
+        "Photo_links":
+        [
+          {
+            "File_name":"weiss-1.jpeg",
+            "Source":"",
+            "Photo_description":"Photo: Irene Weiss"
+          }
+        ]
+      },
+      {
+        "Name": "Irene",
+        "Surname": "Weiss",
+        "index":"7",
+        "max_index":"7",
+        "died": "false",
+        "Place_name":"Neustadt-Glewe",
+        "Lat":"53.366667",
+        "Long":"11.583333",
+        "Profile_picture": "weiss_profile.PNG",
+        "Event_date":"1945-05-02",
+        "Description":"Irene was liberated by Soviet soldiers on May 2nd, 1945. Of around 100 people from Bótrágy who were deported, only about 10 survived, only two of whom were children – Irene and her sister. Now , Irene lives in Virginia, USA.",
+        "Source":"https://www.ushmm.org/remember/office-of-survivor-affairs/survivor-volunteer/irene-fogel-weiss",
+        "Photo_links":
+        [
+          {
+            "File_name":"weiss-1.jpeg",
+            "Source":"",
+            "Photo_description":"Photo: Irene Weiss"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name":"Joseph",
+    "Surname": "Mandrowitz",
+    "Nationality": "Jewish",
+    "Birth_date": "1925-10-05",
+    "Birth_place":"Czemierniki",
+    "Death_date":"Na",
+    "Picture":"mandrowitz-1.jpeg",
+    "Geopoints":[
+      {
+        "Name":"Joseph",
+        "Surname": "Mandrowitz",
+        "index":"0",
+        "max_index":"5",
+        "died": "false",
+        "Place_name": "Czemierniki",
+        "Lat": "51.673056",
+        "Long": "22.631667",
+        "Profile_picture": "mandrowitz_profile.PNG",
+        "Event_date": "1925-10-05",
+        "Description": "Joseph was born in Czermierniki, Poland. His father was a bootmaker and his mother was a seamstress. He was trained as a tailor and he left his house to work in his trade on a ranch 4 miles away from Czemierniki.",
+        "Source": "https://www.theguardian.com/world/2015/jan/26/tales-from-auschwitz-survivor-stories",
+        "Photo_links": [
+          {
+            "File_name": "mandrowitz-2.jpg",
+            "Source": "http://chelm.freeyellow.com/czemierniki.html",
+            "Photo_description": "Family of Mandrowitz"
+          }
+        ]
+      },
+      {
+        "Name":"Joseph",
+        "Surname": "Mandrowitz",
+        "index":"1",
+        "max_index":"5",
+        "died": "false",
+        "Place_name": "Majdanek",
+        "Lat": "51.220325",
+        "Long": "22.60007",
+        "Profile_picture": "mandrowitz_profile.PNG",
+        "Event_date": "1943-05-01",
+        "Description": "That ranch was taken over by SS and Joseph ended up working for them. In May 1943, he was sent to Majdanek and four weeks later he was sent to Auschwitz",
+        "Source": "https://www.theguardian.com/world/2015/jan/26/tales-from-auschwitz-survivor-stories",
+        "Photo_links": [
+          {
+            "File_name": "mandrowitz-3.jpeg",
+            "Source": "https://www.theguardian.com/world/2015/jan/26/tales-from-auschwitz-survivor-stories",
+            "Photo_description": "Joseph Mandrowitz just before he went into the camp. Photograph: Tim Knox"
+          }
+        ]
+      },
+      {
+        "Name":"Joseph",
+        "Surname": "Mandrowitz",
+        "index":"2",
+        "max_index":"5",
+        "died": "false",
+        "Place_name": "Auschwitz",
+        "Lat": "50.235833",
+        "Long": "19.178333",
+        "Profile_picture": "mandrowitz_profile.PNG",
+        "Event_date": "1943-06-01",
+        "Description": "In Auschwitz, Joseph eneded up in a hospital where he was a victim of experiments of Joseph Mengele. He worked as a tailor, fixing up the uniforms of soldiers.",
+        "Source": "https://www.theguardian.com/world/2015/jan/26/tales-from-auschwitz-survivor-stories",
+        "Photo_links":
+        [
+          {
+            "File_name":"mandrowitz-1.jpeg",
+            "Source":"",
+            "Photo_description":"Photo: Joseph Mandrowitz"
+          }
+        ]
+      },
+      {
+        "Name":"Joseph",
+        "Surname": "Mandrowitz",
+        "index":"3",
+        "max_index":"5",
+        "died": "false",
+        "Place_name": "Sachsenhausen - Oranienburg",
+        "Lat": "52.765833",
+        "Long": "13.264167",
+        "Profile_picture": "mandrowitz_profile.PNG",
+        "Event_date": "1944-11-27",
+        "Description": "In 1944, Joseph was sent on a death march to Sachenhausen-Oranienburg.",
+        "Source": "https://www.jewishgen.org/databases/Holocaust/0015_AuschwitzSachsenhausen27Nov1944.htm",
+        "Photo_links": [
+          {
+            "File_name": "mandrowitz-4.jpg",
+            "Source": "https://commons.wikimedia.org/wiki/File%3ABundesarchiv_Bild_183-78612-0005%2C_KZ_Sachsenhausen%2C_Klinkerwerk-H%C3%A4ftlinge.jpg",
+            "Photo_description": "Prisoners working at Sachenhausen concentration camp."
+          }
+        ]
+      },
+      {
+        "Name":"Joseph",
+        "Surname": "Mandrowitz",
+        "index":"4",
+        "max_index":"5",
+        "died": "false",
+        "Place_name": "Buchenwald",
+        "Lat": "51.022222",
+        "Long": "11.248056",
+        "Profile_picture": "mandrowitz_profile.PNG",
+        "Event_date": "1944-12-15",
+        "Description": "Joseph arrived at Buchenwald where he worked in a quarry. He was ordered to drill into mountains to make some sort of secret city.",
+        "Source": "https://www.theguardian.com/world/2015/jan/26/tales-from-auschwitz-survivor-stories",
+        "Photo_links": [
+          {
+            "File_name": "mandrowitz-5.jpg",
+            "Source": "http://www.holocaustresearchproject.org/othercamps/buchenwald.html",
+            "Photo_description": "Buchenwald main gate"
+          }
+        ]
+      },
+      {
+        "Name":"Joseph",
+        "Surname": "Mandrowitz",
+        "index":"5",
+        "max_index":"5",
+        "died": "false",
+        "Place_name": "Theresienstadt",
+        "Lat": "50.513333",
+        "Long": "14.166944",
+        "Profile_picture": "mandrowitz_profile.PNG",
+        "Event_date": "1945-05-09",
+        "Description": "From Buchenwald, Joseph was transported to Theresienstadt by a cargo train. He was liberated by Soviets in May 1945. After war, he moved to U.S. where he stayed until his death on May 9, 2016",
+        "Source": "https://www.theguardian.com/world/2015/jan/26/tales-from-auschwitz-survivor-stories",
+        "Photo_links": [
+          {
+            "File_name": "mandrowitz-6.JPG",
+            "Source": "https://en.wikipedia.org/wiki/File:Czech-2013-Terezin-Theresienstadt-Arbeit_macht_frei.JPG",
+            "Photo_description": "Main gate of Theresienstadt concentration camp"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name":"Etty",
+    "Surname": "Hillesum",
+    "Nationality": "Jewish",
+    "Birth_date": "1914-01-15",
+    "Birth_place":"Middelburg",
+    "Death_date":"Na",
+    "Picture":"hillesum-1.png",
+    "Geopoints":[
+      {
+        "Name":"Etty",
+        "Surname": "Hillesum",
+        "index":"0",
+        "max_index":"6",
+        "died": "true",
+        "Place_name": "Middelburg",
+        "Lat": "51.5",
+        "Long": "3.616667",
+        "Profile_picture": "hillesum_profile.PNG",
+        "Event_date": "1914-01-15",
+        "Description": "Etty (Esther) Hillesum was born in small town on Middelburg on 15th of January, 1914",
+        "Source": "https://jwa.org/encyclopedia/article/hillesum-etty",
+        "Photo_links":
+        [
+          {
+            "File_name":"hillesum-1.png",
+            "Source":"",
+            "Photo_description":"Photo: Etty Hillesum"
+          }
+        ]
+      },
+      {
+        "Name":"Etty",
+        "Surname": "Hillesum",
+        "index":"1",
+        "max_index":"6",
+        "died": "true",
+        "Place_name": "Deveter",
+        "Lat": "52.25",
+        "Long": "6.15",
+        "Profile_picture": "hillesum_profile.PNG",
+        "Event_date": "1924-01-01",
+        "Description": "Hillesum grew up in Deventer, a small city in the east of the Netherlands. There she attended the local gymnasium, of which her father, Dr. L. Hillesum, was the director and where he also taught classical languages. ",
+        "Source": "https://jwa.org/encyclopedia/article/hillesum-etty",
+        "Photo_links":
+        [
+          {
+            "File_name":"hillesum-1.png",
+            "Source":"",
+            "Photo_description":"Photo: Etty Hillesum"
+          }
+        ]
+      },
+      {
+        "Name":"Etty",
+        "Surname": "Hillesum",
+        "index":"2",
+        "max_index":"6",
+        "died": "true",
+        "Place_name": "Amsterdam",
+        "Lat": "52.366667",
+        "Long": "4.9",
+        "Profile_picture": "hillesum_profile.PNG",
+        "Event_date": "1932-01-01",
+        "Description": "When Hillesum was eighteen she moved to Amsterdam, where she initially took her first degree in law and then enrolled in the faculty of Slavonic Languages to study Russian",
+        "Source": "https://jwa.org/encyclopedia/article/hillesum-etty",
+        "Photo_links":
+        [
+          {
+            "File_name":"hillesum-1.png",
+            "Source":"",
+            "Photo_description":"Photo: Etty Hillesum"
+          }
+        ]
+      },
+      {
+        "Name":"Etty",
+        "Surname": "Hillesum",
+        "index":"3",
+        "max_index":"6",
+        "died": "true",
+        "Place_name": "Amsterdam",
+        "Lat": "52.366667",
+        "Long": "4.9",
+        "Profile_picture": "hillesum_profile.PNG",
+        "Event_date": "1941-03-09",
+        "Description": "Hillesum started her diary on March 9, 1941, when the Germans had occupied the Netherlands for nearly one year.",
+        "Source": "https://en.wikipedia.org/wiki/Etty_Hillesum",
+        "Photo_links":
+        [
+          {
+            "File_name":"hillesum-1.png",
+            "Source":"",
+            "Photo_description":"Photo: Etty Hillesum"
+          }
+        ]
+      },
+      {
+        "Name":"Etty",
+        "Surname": "Hillesum",
+        "index":"4",
+        "max_index":"6",
+        "died": "true",
+        "Place_name": "Westerbork",
+        "Lat": "52.9175",
+        "Long": "6.607222",
+        "Profile_picture": "hillesum_profile.PNG",
+        "Event_date": "1942-07-01",
+        "Description": "In July 1942 she took on administrative duties for the Jewish Council, voluntarily transferring to a department of 'Social Welfare for People in Transit' at Westerbork transit camp. On 5 July 1943, her personal status was suddenly revoked and she became a camp internee along with her father, mother and brother Mischa.",
+        "Source": "https://en.wikipedia.org/wiki/Etty_Hillesum",
+        "Photo_links": [
+          {
+            "File_name": "hillesum-2.jpg",
+            "Source": "https://www.ushmm.org/wlc/en/media_ph.php?ModuleId=10005217&MediaId=717",
+            "Photo_description": "A view of the Westerbork camp, the Netherlands, between 1940 and 1945."
+          }
+        ]
+      },
+      {
+        "Name":"Etty",
+        "Surname": "Hillesum",
+        "index":"5",
+        "max_index":"6",
+        "died": "true",
+        "Place_name": "Auschwitz",
+        "Lat": "49.75",
+        "Long": "19.178333",
+        "Profile_picture": "hillesum_profile.PNG",
+        "Event_date": "1943-09-07",
+        "Description": "On 7 September 1943, the family were deported from Westerbork to Auschwitz.",
+        "Source": "https://en.wikipedia.org/wiki/Etty_Hillesum",
+        "Photo_links": []
+      },
+      {
+        "Name":"Etty",
+        "Surname": "Hillesum",
+        "index":"6",
+        "max_index":"6",
+        "died": "true",
+        "Place_name": "Auschwitz",
+        "Lat": "49.75",
+        "Long": "19.178333",
+        "Profile_picture": "hillesum_profile.PNG",
+        "Event_date": "1943-11-30",
+        "Description": "Etty died in Auschwitz on 30 November 1943.",
+        "Source": "https://en.wikipedia.org/wiki/Etty_Hillesum",
+        "Photo_links":
+        [
+          {
+            "File_name":"hillesum-1.png",
+            "Source":"",
+            "Photo_description":"Photo: Etty Hillesum"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name":"Karl",
+    "Surname": "Gorath",
+    "Nationality": "German",
+    "Birth_date": "1912-12-12",
+    "Birth_place":"Bad Zwischenahn",
+    "Death_date":"Na",
+    "Picture":"gorath-1.gif",
+    "Geopoints":[
+      {
+        "Name":"Karl",
+        "Surname": "Gorath",
+        "index":"0",
+        "max_index":"4",
+        "died": "false",
+        "Place_name": "Bad Zwishenahn",
+        "Lat": "53.183611",
+        "Long": "8.009722",
+        "Profile_picture": "gorath_profile.PNG",
+        "Event_date": "1912-12-12",
+        "Description": "Karl Gorath was born in Bad Zwishenahn in northern Germany",
+        "Source": "https://www.ushmm.org/wlc/en/media_oi.php?ModuleId=10005261&MediaId=278",
+        "Photo_links":
+        [
+          {
+            "File_name":"gorath-1.gif",
+            "Source":"",
+            "Photo_description":"Photo: Karl Gorath"
+          }
+        ]
+      },
+      {
+        "Name":"Karl",
+        "Surname": "Gorath",
+        "index":"1",
+        "max_index":"4",
+        "died": "false",
+        "Place_name": "Bremerhaven",
+        "Lat": "53.55",
+        "Long": "8.583333",
+        "Profile_picture": "gorath_profile.PNG",
+        "Event_date": "1914-12-12",
+        "Description": "When he was 2, his family moved to the port of Bremerhaven. His father was a sailor and his mother became a nurse in a local hospital.",
+        "Source": "https://www.ushmm.org/wlc/en/media_oi.php?ModuleId=10005261&MediaId=278",
+        "Photo_links":
+        [
+          {
+            "File_name":"gorath-1.gif",
+            "Source":"",
+            "Photo_description":"Photo: Karl Gorath"
+          }
+        ]
+      },
+      {
+        "Name":"Karl",
+        "Surname": "Gorath",
+        "index":"2",
+        "max_index":"4",
+        "died": "false",
+        "Place_name": "Neuengamme",
+        "Lat": "53.430556",
+        "Long": "10.233611",
+        "Profile_picture": "gorath_profile.PNG",
+        "Event_date": "1938-12-12",
+        "Description": "Karl was 26 when his jealous lover denounced him under paragraph 175 of the criminal code, which defined homosexuality as an 'unnatural' act. Karl was arrested and send to concentration camp in Neuengamme.",
+        "Source": "https://www.ushmm.org/wlc/en/media_oi.php?ModuleId=10005261&MediaId=278",
+        "Photo_links": [
+          {
+            "File_name": "gorath-2.jpg",
+            "Source": "https://www.ushmm.org/wlc/en/media_ph.php?ModuleId=10005539&MediaId=2398",
+            "Photo_description": "View of Neuengamme concentration camp. Germany, wartime."
+          }
+        ]
+      },
+      {
+        "Name":"Karl",
+        "Surname": "Gorath",
+        "index":"3",
+        "max_index":"4",
+        "died": "false",
+        "Place_name": "Wittenberg",
+        "Lat": "51.6625",
+        "Long": "12.931944",
+        "Profile_picture": "gorath_profile.PNG",
+        "Event_date": "1940-01-01",
+        "Description": "Because of his medical training, Karl was transferred to work at the prisoner hospital at the Wittenberg subcamp. One day he refused to follow an order of decreasing the bread ration for the patients who were Polish prisoners of war. As punishment, he was sent to Auschwitz.",
+        "Source": "https://www.ushmm.org/wlc/en/media_oi.php?ModuleId=10005261&MediaId=278",
+        "Photo_links":
+        [
+          {
+            "File_name":"gorath-1.gif",
+            "Source":"",
+            "Photo_description":"Photo: Karl Gorath"
+          }
+        ]
+      },
+      {
+        "Name":"Karl",
+        "Surname": "Gorath",
+        "index":"4",
+        "max_index":"4",
+        "died": "false",
+        "Place_name": "Auschwitz",
+        "Lat": "50.035833",
+        "Long": "18.8",
+        "Profile_picture": "gorath_profile.PNG",
+        "Event_date": "1943-06-01",
+        "Description": "Karl was liberated in Auschwitz in 1945. After the war he had difficulty because of his record of having been convicted under paragraph 175.",
+        "Source": "https://www.ushmm.org/wlc/en/media_oi.php?ModuleId=10005261&MediaId=278",
+        "Photo_links":
+        [
+          {
+            "File_name":"gorath-1.gif",
+            "Source":"",
+            "Photo_description":"Photo: Karl Gorath"
+          }
+        ]
+      }
+    ]
+  }
+
+]

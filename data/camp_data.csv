@@ -1,0 +1,64 @@
+Camp_name,Country_today,Camp_type,Start_date,End_date,Total_years,Est_prisoners,Est_deaths,Lat,Long,Photo,Photo_Source,Photo_description
+Alderney,Channel Islands,Labour camps,1942/1/1/,1944/6/1/,2,6000,700,49.716667,-2.2,alderney.jpg,http://www.bbc.com/news/world-europe-guernsey-31795610,Photo of Alderney concentration camp.
+Amersfoort,Netherlands,Transit camp and prison,1941/8/1/,1945/4/1/,4,35000,1000,52.1325,5.365556,amersfoort.jpg,https://commons.wikimedia.org/wiki/File%3AKampgevangenen_Vught_graafwerkzaamheden_in_Amersfoort.jpg,Prisoners from Amersfoort concentration camp
+Arbeitsdorf,Germany,Labour camp,1942/4/8/,1942/10/11/,1,600,0,52.433333,10.766667,,,
+Auschwitz-Birkenau,Poland,Extermination and labour camp,1940/4/1/,1945/1/1/,5,135000,1100000,50.035833,19.178333,auschwitz.jpg,https://en.wikipedia.org/wiki/File:Selection_Birkenau_ramp.jpg,Selection of Hungarian Jews on the ramp at the death camp Auschwitz-II (Birkenau) in Poland during German occupation. Jews were sent either to work or to the gas chamber.
+Banjica,Serbia,Concentration camp,1941/6/1/,1944/9/1/,3,23637,3849,44.770833,20.4675,banjica.jpg,https://commons.wikimedia.org/wiki/File%3ASprovo%C4%91enje_u_Banji%C4%8Dki_logor.jpg,Concentration camp Banjica
+Bardufoss,Norway,Concentration camp,1944/3/1/,,1,800,250,69.0645,18.5151,,,
+Belzec,Poland,Extermination camp,1941/10/1/,1943/6/1/,2,434508,434508,50.371667,23.4575,belzec.jpg,https://commons.wikimedia.org/wiki/File:Belzec_-_SS_staff_(1942).jpg#/media/File:Belzec_-_SS_staff_(1942).jpg,Bełżec - former German-Nazi extermination camp - Lwowska Street area. In this photograph the SS staff outside the camp perimeter.
+Bergen-Belsen,Germany,Concentration camp,1943/4/1/,1945/4/1/,2,120000,52000,52.757778,9.907778,bergen-belsen.jpg,http://media.iwm.org.uk/iwm/mediaLib//37/media-37179/large.jpg,Women survivors in Bergen-Belsen. April 1945.
+Berlin-Marzahn,Germany,"Early a ""rest place"" then labour camp for Roma",1936/7/1/,,0,0,0,52.551389,13.546389,marzahn.jpg,https://www.ushmm.org/exhibition/olympics/?content=facade_hospitality_more&lang=en,"A “Gypsy camp” in the Berlin district of Marzahn. In an unpublicized “clean-up” of the city, the German Ministry of the Interior ordered the Berlin Chief of Police to arrest and intern approximately 800 Roma and Sinti on July 16 1936. The camp would later serve as a site for deportations to Auschwitz."
+Bernburg,Germany,Collection point,1942/4/1/,1945/4/1/,3,14385,2,51.787222,11.729028,bernburg.jpg,https://en.wikipedia.org/wiki/Bernburg_Euthanasia_Centre#/media/File:Bernburg_Toetungsgebaeude.jpg,Extermination wing
+Bogdanovka,Ukraine,Concentration camp,1941/1/1/,1942/2/1/,1,54000,40000,47.813333,31.156389,bogdanovka.jpg,https://www.memorialmuseums.org/eng/denkmaeler/view/1474/Memorial-to-the-Victims-of-the-Bogdanovka-Extermination-Camp,One of the pigsties into which Jewish prisoners were crowded
+Bolzano,Italy,Transit,1944/7/1/,1945/4/1/,1,11116,,46.484444,11.32,bolzano.jpg,https://www.memorialmuseums.org/eng/staettens/view/55/Bolzano-Police-Transit-Camp,Police transit camp Bolzano
+Bor,Serbia,Labour camp,1943/7/1/,1944/9/1/,1,6000,1800,44.083333,22.1,bor.jpg,http://jewishcurrents.org/september-17-death-march-from-the-bor-mines/,Bor mines
+Bredtvet,Norway,Concentration camp,1941/10/1/,1944/5/1/,3,1000,0,59.949067,10.859172,,,
+Breendonk,Belgium,Prison and labour camp,1940/9/20/,1944/9/1/,4,3532,391,51.056389,4.341389,breendonk.jpg,https://www.ushmm.org/wlc/en/media_ph.php?ModuleId=10005423&MediaId=1600,Entrance to the Breendonk internment camp
+Breitenau,Germany,Early wild camp then labour camp,1933/6/1/,1934/3/1/,1,470,0,51.203056,9.475556,breitenau.jpg,https://www.memorialmuseums.org/eng/staettens/view/49/Breitenau-Memorial,The Breitenau correctional facility
+Buchenwald,Germany,Concentration camp,1937/7/1/,1945/4/1/,8,266000,56545,51.022222,11.248056,buchenwald.jpg,https://en.wikipedia.org/wiki/Buchenwald_concentration_camp,Watchtower at the memorial site Buchenwald
+Chelmno (Kulmhof),Poland,Extermination camp,1941/12/1/,1945/1/1/,4,0,152000,52.154011,18.722978,chelmno.jpg,https://en.wikipedia.org/wiki/File:Che%C5%82mno_(Kulmhof)_1942_(Ko%C5%82o).jpg,Loading of victims sent from the ghetto in Łódź
+Dachau,Germany,Concentration camp,1933/3/1/,1945/4/1/,12,200000,31591,48.268889,11.468611,dachau.jpg,https://en.wikipedia.org/wiki/Dachau_concentration_camp,Roll-call of Jewish prisoners (wearing Star of David badges) on 20 July 1938
+Drancy,France,Internment camp transit,1941/8/20/,1944/8/17/,3,70000,0,48.92,2.455,drancy.jpg,https://en.wikipedia.org/wiki/Drancy_internment_camp,View of the accommodation block at Drancy with French gendarme on guard
+Falstad,Norway,Prison camp,1941/12/1/,1945/8/17/,4,0,200,63.691906,11.041474,falstad.jpg,https://en.wikipedia.org/wiki/Falstad_concentration_camp,Aerial photo taken of Falstad concentration camp shortly after the May 1945 German capitulation
+Flossenburg,Germany,Concentration camp,1938/5/1/,1945/4/1/,7,96000,30000,49.735556,12.355833,flossenburg.jpg,https://en.wikipedia.org/wiki/Flossenb%C3%BCrg_concentration_camp,General view of Flossenbürg concentration camp after liberation in April 1945
+Fort de Romainville,France,Prison and transit camp,1940/1/1/,1944/8/1/,4,8100,200,48.885126,2.422718,romainville.JPG,https://en.wikipedia.org/wiki/Fort_de_Romainville,Panorama of the Fort de Romainville at the beginning of the 20th century
+Fort VII (Posen),Poland,Concentration detention transit,1939/10/1/,1944/4/1/,5,18000,4500,52.416944,16.868056,,,
+Grini,Norway,Prison camp,1941/5/2/,1945/5/1/,4,19788,8,59.953433,10.582547,grini.jpg,https://en.wikipedia.org/wiki/Grini_detention_camp,Recent parade alignment of prisoners during World War II
+Gross-Rosen,Poland,Labour camp; Nacht und Nebel camp,1940/8/1/,1945/2/1/,5,125000,40000,50.999281,16.277704,gross-rosen.jpg,https://www.ushmm.org/wlc/en/media_ph.php?ModuleId=10005454&MediaId=8831,Commandant Arthur Roedl and SS officers visit the Gross-Rosen concentration camp's quarry.
+Herzogenbusch (Vught),Netherlands,Concentration camp,1943/1/1/,1944/6/1/,1,31000,750,51.665833,5.258889,vught.jpg,https://en.wikipedia.org/wiki/Herzogenbusch_concentration_camp,A view along the fences of the camp in 1945
+Hinzert,Germany,Collection point and subcamp,1940/7/1/,1945/3/1/,5,14000,302,49.698889,6.892778,hinzert.jpg,https://en.wikipedia.org/wiki/Hinzert_concentration_camp,The Hinzert concentration camp panorama
+Jagala,Estonia,Labour camp,1942/8/1/,1943/8/1/,1,200,3000,59.416667,25.233333,,,
+Janowska (Lwow),Ukraine,Ghetto; transit labour & extermination camp,1941/9/1/,1943/11/1/,2,40000,0,49.854167,23.99,janowska.jpg,https://commons.wikimedia.org/wiki/Category:Janowska_Nazi_camp,Prisoners in Janowska concentration camp
+Kaiserwald (Mezaparks),Latvia,Concentration camp,1942/1/1/,1944/8/6/,2,20000,16,56.996944,24.131389,kaiserwald.jpg,https://www.memorialmuseums.org/eng/denkmaeler/view/1522/Kaiserwald-Concentration-Camp-Memorial,Kaiserwald concentration camp following liberation
+Kaufering/Landsberg,Germany,Concentration camp,1943/6/1/,1945/4/1/,2,30000,14500,48.123,10.841,kaufering.jpg,https://en.wikipedia.org/wiki/Kaufering_concentration_camp,View of huts after the liberation of Kaufering
+Kemna,Germany,Early concentration camp,1933/1/1/,1944/1/1/,11,4500,0,51.255139,7.255444,kemna.jpg,https://en.wikipedia.org/wiki/Kemna_concentration_camp,Old factory building used as concentration camp
+Kistarcsa,Hungary,Concentration camp,1944/1/1/,1945/1/1/,1,0,1800,47.54783,19.26343,,,
+Klooga,Estonia,Labour camp,1943/6/1/,1944/9/28/,1,0,1800,59.320142,24.213353,klooga.jpg,https://en.wikipedia.org/wiki/Klooga_concentration_camp,Corpses of inmates from Klooga concentration camp stacked for burning
+Koldichevo,Belarus,Labour camp,1942/6/1/,1944/6/1/,2,0,22000,53.2807,26.0488,,,
+Majdanek (KZ Lublin),Poland,Extermination and concentration camp,1941/7/1/,1944/7/1/,3,,78000,51.220325,22.60007,majdanek.jpg,https://www.ushmm.org/wlc/en/media_ph.php?ModuleId=10005190&MediaId=983,Soviet prisoners of war at camp at the camp's liberation
+Malchow,Germany,Concentration and Transit camp,1943/12/1/,1945/5/8/,2,5000,,53.466667,12.416667,,,
+Maly Trostenets,Belarus,Extermination camp,1941/7/1/,1944/6/1/,3,0,60000,53.862222,27.705278,,,
+Mauthausen-Gusen,Austria,Concentration camp,1938/8/1/,1945/5/1/,7,195000,55000,48.256944,14.501111,mauthausen.jpg,https://en.wikipedia.org/wiki/Mauthausen-Gusen_concentration_camp,New prisoners awaiting disinfection in the garage yard of Mauthausen
+Mechelen,Belgium,Transit camp,1942/7/1/,1944/9/1/,2,25267,300,51.033889,4.478333,mechelen.jpg,https://en.wikipedia.org/wiki/Mechelen_transit_camp,Summer 1942: the Mechelen transit camp after the arrival of those caught during the night.
+Mittelbau-Dora,Germany,Concentration camp,1943/9/1/,1945/4/1/,2,60000,20000,51.5355,10.748556,dora.jpg,https://www.ushmm.org/wlc/en/media_ph.php?ModuleId=10005322&MediaId=2200,iew of a tunnel entrance to the rocket factory at the Dora-Mittelbau concentration camp
+Natzweiler-Struthof (Struthof),France,Concentration camp; Nacht und Nebel camp; extermination camp,1941/5/1/,1944/9/1/,3,52000,22000,48.454722,7.254444,,,
+Neuengamme,Germany,Concentration camp,1938/12/13/,1945/5/4/,7,106000,42900,53.430556,10.233611,neuengamme.jpg,https://en.wikipedia.org/wiki/Neuengamme_concentration_camp,Neuengamme concentration camp perimeter along the Dove Elbe embankment
+Niederhagen,Germany,Concentration and labour camp,1941/9/1/,1943/3/1/,2,3900,1285,51.607719,8.661925,,,
+Oberer Kuhberg concentration camp (de),Germany,Concentration camp,1933/11/1/,1935/1/1/,2,0,0,48.411944,9.982778,,,
+Oranienburg,Germany,Early concentration camp,1933/3/1/,1934/7/1/,1,3000,16,52.7493,13.2367,,,
+Osthofen,Germany,Collective point,1933/3/1/,1934/7/1/,1,0,0,49.707778,8.328889,,,
+Plaszow,Poland,Labour camp,1942/12/1/,1945/1/1/,3,150000,9000,50.030833,19.9675,,,
+Ravensbruck,Germany,Concentration camp for women,1939/5/1/,1945/4/1/,6,132000,28000,53.189,13.17,,,
+Risiera di San Sabba (Trieste),Italy,Police detainment camp,1943/9/1/,1945/4/29/,2,25000,5000,45.621,13.789,,,
+Sachsenhausen,Germany,Concentration camp,1936/7/1/,1945/4/1/,9,200000,30000,52.765833,13.264167,,,
+Sajmiste,Serbia,Extermination camp,1941/10/1/,1944/7/1/,3,50000,20000,44.812778,20.445,,,
+Salaspils (Kirchholm),Latvia,Concentration camp,1941/10/1/,1944/6/1/,3,0,2000,56.874389,24.301361,,,
+Skrochowitz (Skrochovice),Czech Republic,Transit (1939) and labour camp,1939/9/1/,1943/1/1/,4,700,13,50.02,17.7275,,,
+Sobibor,Poland,Extermination camp,1942/5/1/,1943/10/1/,1,0,170165,51.447222,23.593611,,,
+Soldau,Poland,Labour; Transit camp,1939/12/1/,1945/1/1/,6,30000,13000,53.233333,20.183333,,,
+Stutthof,Poland,Concentration camp,1939/9/1/,1945/5/1/,6,110000,65000,54.328889,19.153889,,,
+Theresienstadt (Terezin),Czech Republic,Transit camp and Ghetto,1941/11/1/,1945/5/1/,4,140000,33000,50.513333,14.166944,,,
+Treblinka,Poland,Extermination camp,1942/7/1/,1943/11/1/,1,0,780000,52.631069,22.053058,,,
+Vaivara,Estonia,Concentration and transit camp,1943/9/15/,1944/2/29/,1,20000,950,59.367222,27.763056,,,
+Warsaw,Poland,Concentration and extermination camp,1942/1/1/,1944/1/1/,2,400000,20000,52.242925,20.993031,,,
+Westerbork,Netherlands,Transit camp,1940/5/1/,1945/4/1/,5,102000,0,52.9175,6.607222,,,
