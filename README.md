@@ -15,16 +15,35 @@ Explain start mask and finish mask + functionality, instructions, and finish mas
 
 
 ## Structure of the project
+The project has the following structure:
+1. `css` - this folder contains all the CSS files. `style.css` is the file containing all of our styling for the websites. Other files are used by the libraries that we use (Bootstrap and jQuery).
+2. `data` - contains all the data used by our project
+3. `fonts` - contains fonts and glyphicons used by our project
+4. `img` - contains all the images used by our project
+5. `js` - contains all the Javascript files used by our project. We keep there both the libraries that we use and our own code. More details in the section `Libraries`.
+6. `index.html` - This is where `html` template for our project sits
 
 ## Data used
 There are 4 data sets that are used in this project:
 
-1. `camp_data` and `camp_img` – contains data on 60 major Nazi concentration camps in Europe between 1933 and 1945. The data was collected based on the Wikipedia page on Nazi concentration camps in Europe. Each line of the file includes 
+1. `camp_` data – contains data on 60 major Nazi concentration camps in Europe between 1933 and 1945. The data was collected based on the Wikipedia page on Nazi concentration camps in Europe. Each line of the file includes 
 camp name, country today, camp type, dates of use, estimated number of prisoners, estimated number of deaths, latitude, longitude, photo name, photo source and photo description. The images were collected online from Wikimedia, United States Holocaust Memorial Museum and museums in former concentration camps. CSV file with the data contains links to the original source for each photo used.
 
-2. `arrivals_data` – contains demographic data on arrivals to Auschwitz between 1941 and 1945. The data comes in it's entirety from the book "How many people died in Auschwitz?" (in Polish) published by the Museum of Auschwitz – 
+2. `arrivals_` data – contains demographic data on arrivals to Auschwitz between 1941 and 1945. The data comes in it's entirety from the book "How many people died in Auschwitz?" (in Polish) published by the Museum of Auschwitz – 
 Piper, F. (1992). Ilu ludzi zginęło w KL Auschwitz : Liczba ofiar w świetle źródeł i badań 1945-1990. Oświęcim: Wydawn. Państwowego Muzeum w Oświęcimiu.
 
-3. `prisoners_data` – is the data collected from an online research on 4 individuals who used to be prisoners at Auschwitz at some point of the war. The informations were obtained mostly from news articles and Wikipedia pages. The CSV file contains  a link to a source for each data point.
+3. `prisoners.json` – is the data collected from an online research on 4 individuals who used to be prisoners at Auschwitz at some point of the war. The informations were obtained mostly from news articles and Wikipedia pages. The CSV file contains  a link to a source for each data point.
 
-4. `auschwitz_data` – is a collection of different demographic data on prisoners at Auschwitz. The data comes in its entirety from the collections of the Museum at Auschwitz.
+4. `auschwitz_` – is a collection of different demographic data on prisoners at Auschwitz. The data comes in its entirety from the collections of the Museum at Auschwitz.
+
+## Libraries used
+We used the following Javascript templates in our project:
+1. `jQuery`
+2. `Bootstrap`
+3. `queue`
+4. `topojson`
+5. `d3-tip`
+6. `jquery-ui`
+7. `d3-legend`
+8. `jquery.localScroll`
+9. `jquery.scrollTo`
