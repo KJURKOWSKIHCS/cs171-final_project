@@ -29,8 +29,8 @@ There are 4 data sets that are used in this project:
 1. `camp_` data – contains data on 60 major Nazi concentration camps in Europe between 1933 and 1945. The data was collected based on the Wikipedia page on Nazi concentration camps in Europe. Each line of the file includes 
 camp name, country today, camp type, dates of use, estimated number of prisoners, estimated number of deaths, latitude, longitude, photo name, photo source and photo description. The images were collected online from Wikimedia, United States Holocaust Memorial Museum and museums in former concentration camps. CSV file with the data contains links to the original source for each photo used.
 
-2. `arrivals_` data – contains demographic data on arrivals to Auschwitz between 1941 and 1945. The data comes in it's entirety from the book "How many people died in Auschwitz?" (in Polish) published by the Museum of Auschwitz – 
-Piper, F. (1992). Ilu ludzi zginęło w KL Auschwitz : Liczba ofiar w świetle źródeł i badań 1945-1990. Oświęcim: Wydawn. Państwowego Muzeum w Oświęcimiu.
+2. `arrivals_` data – contains demographic data on arrivals to Auschwitz between 1941 and 1945. The data comes in it's entirety from the book "How many people died in Auschwitz?" (in Polish) published by the Museum of Auschwitz.
+> Piper, F. (1992). Ilu ludzi zginęło w KL Auschwitz : Liczba ofiar w świetle źródeł i badań 1945-1990. Oświęcim: Wydawn. Państwowego Muzeum w Oświęcimiu.
 
 3. `prisoners.json` – is the data collected from an online research on 4 individuals who used to be prisoners at Auschwitz at some point of the war. The informations were obtained mostly from news articles and Wikipedia pages. The CSV file contains  a link to a source for each data point.
 
@@ -47,3 +47,9 @@ We used the following Javascript templates in our project:
 7. `d3-legend`
 8. `jquery.localScroll`
 9. `jquery.scrollTo`
+
+## References
+- [Stacked Bar Chart](https://bl.ocks.org/caravinden/32a3d192e0e5f6af81f4bcc12adda8f7)
+- [Slider](https://jqueryui.com/slider/#slider-vertical)
+- [Mask Inspiration](https://github.com/codrops/FullscreenOverlayStyles)
+- [Modals guidance](https://getbootstrap.com/docs/3.3/javascript/)
