@@ -470,6 +470,8 @@ a:hover {color:#ccc; text-decoration:none}
     display: none;
     color: #ccc;
     font-size: 15px;
+    height: 40vh;
+    overflow: auto;
 }
 
 .summary_4:hover, .summary_3:hover, .summary_2:hover, .summary_1:hover {
