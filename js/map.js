@@ -2,10 +2,11 @@
 var curObject;
 var zoomLevel = false;
 
-MapChart = function(_parentElement, _data, _prisonerData, _campData){
+MapChart = function(_parentElement, _data, _prisonerData, _connectionData, _campData){
     this.parentElement = _parentElement;
     this.data = _data;
     this.prisonerData = _prisonerData;
+    this.connectionData = _connectionData;
     this.campData = _campData;
 
     this.initVis();
@@ -52,6 +53,114 @@ MapChart.prototype.initVis = function(){
         .append("g")
         .attr("transform", "translate(" + 0 + "," + vis.margin.top + ")");
 
+    vis.pastPrisoners = [];
+    vis.pastCamps = [];
+
+
+    //https://www.visualcinnamon.com/2016/06/glow-filter-d3-visualization.html
+
+    //Container for the gradients
+    var defs = vis.svg.append("defs");
+
+    //Filter for the outside glow
+    var filter = defs.append("filter")
+        .attr("id","glow");
+    filter.append("feGaussianBlur")
+        .attr("stdDeviation","2")
+        .attr("result","coloredBlur");
+    var feMerge = filter.append("feMerge");
+    feMerge.append("feMergeNode")
+        .attr("in","coloredBlur");
+    feMerge.append("feMergeNode")
+        .attr("in","SourceGraphic");
+
+    vis.allStartingPoints = [
+        {
+            "Name":"Karl",
+            "Surname": "Gorath",
+            "index":"0",
+            "max_index":"4",
+            "died": "false",
+            "Place_name": "Bad Zwishenahn",
+            "Lat": "53.183611",
+            "Long": "8.009722",
+            "Event_date": "1912-12-12",
+            "Description": "Karl Gorath was born in Bad Zwishenahn in northern Germany",
+            "Source": "https://www.ushmm.org/wlc/en/media_oi.php?ModuleId=10005261&MediaId=278",
+            "Photo_links":
+                [
+                    {
+                        "File_name":"gorath-1.gif",
+                        "Source":"",
+                        "Photo_description":"Photo: Karl Gorath"
+                    }
+                ]
+        },
+        {
+            "Name":"Etty",
+            "Surname": "Hillesum",
+            "index":"0",
+            "max_index":"6",
+            "died": "true",
+            "Place_name": "Middelburg",
+            "Lat": "51.5",
+            "Long": "3.616667",
+            "Event_date": "1914-01-15",
+            "Description": "Etty (Esther) Hillesum was born in small town on Middelburg on 15th of January, 1914",
+            "Source": "https://jwa.org/encyclopedia/article/hillesum-etty",
+            "Photo_links":
+                [
+                    {
+                        "File_name":"hillesum-1.png",
+                        "Source":"",
+                        "Photo_description":"Photo: Etty Hillesum"
+                    }
+                ]
+        },
+        {
+            "Name":"Joseph",
+            "Surname": "Mandrowitz",
+            "index":"0",
+            "max_index":"5",
+            "died": "false",
+            "Place_name": "Czemierniki",
+            "Lat": "51.673056",
+            "Long": "22.631667",
+            "Event_date": "1925-10-05",
+            "Description": "Joseph was born in Czermierniki, Poland. His father was a bootmaker and his mother was a seamstress. He was trained as a tailor and he left his house to work in his trade on a ranch 4 miles away from Czemierniki.",
+            "Source": "https://www.theguardian.com/world/2015/jan/26/tales-from-auschwitz-survivor-stories",
+            "Photo_links": [
+                {
+                    "File_name": "mandrowitz-2.jpg",
+                    "Source": "http://chelm.freeyellow.com/czemierniki.html",
+                    "Photo_description": "Family of Mandrowitz"
+                }
+            ]
+        },
+        {
+            "Name": "Irene",
+            "Surname": "Weiss",
+            "index":"0",
+            "max_index":"7",
+            "died": "false",
+            "Place_name":"Bótrágy",
+            "Lat":"48.322778",
+            "Long":"22.4125",
+            "Event_date":"1930-11-21",
+            "Description":"Irene Fogel Weiss was born on November 21, 1930 in Bótrágy, Czechoslovakia, now Batrad, Ukraine.",
+            "Source":"https://www.theguardian.com/world/2015/jan/26/tales-from-auschwitz-survivor-stories",
+            "Photo_links":
+                [
+                    {
+                        "File_name":"weiss-1.jpeg",
+                        "Source":"",
+                        "Photo_description":"Photo: Irene Weiss"
+                    }
+                ]
+        }
+    ];
+
+
     // (Filter, aggregate, modify data)
     vis.wrangleData(1912);
 };
@@ -64,7 +173,10 @@ MapChart.prototype.initVis = function(){
 MapChart.prototype.wrangleData = function(year){
     var vis = this;
     vis.displayedPoints = [];
+    vis.glowPrisoners = [];
+    vis.glowCamps = [];
     vis.displayedCamps = [];
+
     vis.maxIndex = {
         "Irene": null,
         "Joseph": null,
@@ -75,11 +187,13 @@ MapChart.prototype.wrangleData = function(year){
 
     vis.world = topojson.feature(vis.data, vis.data.objects.countries).features;
 
+
     vis.prisonerData.forEach(function(d, i, array) {
         array[i].Geopoints.forEach(function(l, j, arr) {
             arr[j].Lat = +l.Lat;
             arr[j].Long = +l.Long;
             arr[j].index = +l.index;
+            arr[j].max_index = +l.max_index;
         });
     });
 
@@ -96,24 +210,52 @@ MapChart.prototype.wrangleData = function(year){
         });
     });
 
-    vis.campData.forEach(function(d) {
+    vis.connectionData.forEach(function(d, i, array) {
+        array[i].Origin = +array[i].Origin;
+        array[i].Destination = +array[i].Destination;
+        array[i].x1 = +array[i].x1;
+        array[i].y1 = +array[i].y1;
+        array[i].x2 = +array[i].x2;
+        array[i].y2 = +array[i].y2;
+    });
+
+    vis.glowPrisoners = vis.displayedPoints.filter(function(d) {
+        return vis.pastPrisoners.indexOf(d) < 0;
+    });
+
+    vis.campData.forEach(function(d, i, array) {
+        array[i].Est_deaths = +d.Est_deaths;
         var coordinates = vis.projection([d.Long, d.Lat]);
         if (parseInt(d.Start_date.slice(0, 4)) <= year && coordinates[0] <= vis.width && coordinates[1] <= vis.height - 200) {
             vis.displayedCamps.push(d);
         }
     });
 
-    for (var key in vis.maxIndex) {
-        var value = vis.maxIndex[key];
-        var person = vis.displayedPoints.filter(function(data) {
-            return data.Name === key;
-        });
-        person.sort(function(a, b) {
-            return a.index - b.index;
-        });
-        for (var i = 0; i < value; i++) {
-            vis.connections.push([person[i].Long, person[i].Lat, person[i+1].Long, person[i+1].Lat, key]);
+    vis.totalDeaths = 0;
+    for (var k = 0; k < vis.campData.length; k++) {
+        if (Number.isInteger(vis.campData[k].Est_deaths)) {
+            vis.totalDeaths += vis.campData[k].Est_deaths;
         }
+    }
+
+    vis.glowCamps = vis.displayedCamps.filter(function(d) {
+        return vis.pastCamps.indexOf(d) < 0;
+    });
+
+    vis.startingPoints = vis.displayedPoints.filter(function(d) {
+        return d.index === 0;
+    });
+
+    vis.deathPoints = vis.displayedPoints.filter(function(d, i, array) {
+        return d.index === d.max_index && d.died === "true";
+    });
+
+    vis.totalToDate = 0;
+    if (year > 1932) {
+        for (var i = 1; i < year - 1945 + 14; i++) {
+            vis.totalToDate += i * (vis.totalDeaths/91);
+        }
+        vis.totalToDate = Math.floor(vis.totalToDate);
     }
 
 
@@ -129,8 +271,6 @@ MapChart.prototype.wrangleData = function(year){
 MapChart.prototype.updateVis = function(){
     var vis = this;
 
-    //vis.gauge = vis.svg.call(d3.liquidfillgauge, 37);
-
     vis.svg.append("clipPath")
         .attr("id", "map-clip")
         .append("rect")
@@ -138,6 +278,7 @@ MapChart.prototype.updateVis = function(){
         .attr("y", 0)
         .attr("width", vis.width)
         .attr("height", vis.height - 200);
+
 
     vis.svg.selectAll("path")
         .data(vis.world)
@@ -147,7 +288,7 @@ MapChart.prototype.updateVis = function(){
         .style("fill", "darkgrey")
         .style("stroke", "lightgrey");
 
-    vis.tip_camp = d3.tip()
+    vis.tip = d3.tip()
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
@@ -157,9 +298,9 @@ MapChart.prototype.updateVis = function(){
                 + "<p style='text-center; color: yellow'><strong>Click for more info</strong></p>";
         });
 
-    vis.svg.call(vis.tip_camp);
+    vis.svg.call(vis.tip);
 
-    vis.tip_event = d3.tip()
+    vis.pointTip = d3.tip()
         .attr('class', 'd3-tip eventTip')
         .offset([-10, 0])
         .html(function(d) {
@@ -172,36 +313,130 @@ MapChart.prototype.updateVis = function(){
                 + "<p style='text-center; color: maroon'><strong>Click for more info</strong></p>";
         });
 
-    vis.svg.call(vis.tip_event);
+    vis.svg.call(vis.pointTip);
 
-
-    vis.connectors = vis.svg.selectAll(".connections")
-        .data(vis.connections);
-
-
-    vis.connectors
-        .enter().append("line")
-        .merge(vis.connectors)
-        .attr("class", function(d) { return "connections " +  d[4];})
-        .attr("x1", function(d) {return vis.projection([d[0], d[1]])[0];})
-        .attr("x2", function(d) {return vis.projection([d[2], d[3]])[0];})
-        .attr("y1", function(d) {return vis.projection([d[0], d[1]])[1];})
-        .attr("y2", function(d) {return vis.projection([d[2], d[3]])[1];})
-        .style("stroke", "black")
-        .style("stroke-dasharray", ("7, 3"))
-        .style("opacity", 0.3)
-        .style("stroke-width", 5)
-        .on('mouseover', function(d) {
-            vis.svg.selectAll("." + d[4])
-                .style("opacity", 1);
-            //vis.highlight(d);
+    vis.clips = vis.svg.selectAll(".picClips")
+        .data(vis.allStartingPoints).enter()
+        .append("clipPath")
+        .attr("id", function(d) {return d.Name + "-clip";})
+        .append("circle")
+        .attr("cx", function(d) {
+            if (d.Name === "Karl" || d.Name === "Etty") {
+                return vis.projection([d.Long, d.Lat])[0] - 40;
+            }
+            else {
+                return vis.projection([d.Long, d.Lat])[0] + 55;
+            }
         })
-        .on('mouseout', function(d) {
-            vis.svg.selectAll("." + d[4])
-                .style("opacity", 0.3);
-        });
+        .attr("cy", function(d) {return vis.projection([d.Long, d.Lat])[1] - 40})
+        .attr("r", 25);
 
-    vis.connectors.exit().remove();
+    vis.picLines = vis.svg.selectAll(".picLines")
+        .data(vis.startingPoints);
+
+    vis.picLines.enter().append("line")
+        .merge(vis.picLines)
+        .attr("id", function(d) {return d.Name + "-line"})
+        .attr("class", "picLines")
+        .attr("x1", function(d) {
+            if (d.Name === "Karl" || d.Name === "Etty") {
+                return vis.projection([d.Long, d.Lat])[0] - 40;
+            }
+            else {
+                return vis.projection([d.Long, d.Lat])[0] + 55;
+            }
+        })
+        .attr("x2", function(d) {
+            if (d.Name === "Karl" || d.Name === "Etty") {
+                return vis.projection([d.Long, d.Lat])[0] - 6;
+            }
+            else {
+                return vis.projection([d.Long, d.Lat])[0] + 6;
+            }
+        })
+        .attr("y1", function(d) {return vis.projection([d.Long, d.Lat])[1] - 40})
+        .attr("y2", function(d) {return vis.projection([d.Long, d.Lat])[1] - 6})
+        .style("opacity", 1)
+        .style("stroke", "white");
+
+    vis.picLines.exit().remove();
+
+    vis.picLabels = vis.svg.selectAll(".picLabels")
+        .data(vis.startingPoints);
+
+    vis.picLabels
+        .enter().append("svg:image")
+        .merge(vis.picLabels)
+        .attr("class", "picLabels")
+        .attr("x", function(d) {
+            if (d.Name === "Karl" || d.Name === "Etty") {
+                return vis.projection([d.Long, d.Lat])[0] - 65;
+            }
+            else {
+                return vis.projection([d.Long, d.Lat])[0] + 30;
+            }
+        })
+        .attr("y", function(d) {
+            return vis.projection([d.Long, d.Lat])[1] - 65;
+        })
+        .attr("width", 50)
+        .attr("height", 50)
+        .attr("xlink:href", function(d) {return "img/profile/" + d.Name + ".PNG"})
+        .attr("clip-path", function(d) {return "url(#" + d.Name + "-clip"});
+
+    vis.picLabels.exit().remove();
+
+
+    vis.connectionData.forEach(function(d, i, array) {
+
+        if (d.displayed === "true" &&
+            vis.displayedPoints.filter(function (data) {
+                return d.Name === data.Name && d.Origin === data.index;
+            }).length === 0 ||
+            vis.displayedPoints.filter(function (data) {
+                return d.Name === data.Name && d.Destination === data.index;
+            }).length === 0) {
+            vis.svg.selectAll("#" + d.Name + d.Origin + d.Destination).remove();
+            array[i].displayed = "false";
+        }
+
+
+        if (vis.displayedPoints.filter(function (data) {
+            return d.Name === data.Name && d.Origin === data.index;}).length !== 0 &&
+            vis.displayedPoints.filter(function(data) {
+                return d.Name === data.Name && d.Destination === data.index;}).length !== 0) {
+
+            if (d.displayed === "false") {
+                vis.connectors = vis.svg
+                    .append("line")
+                    .attr("id", d.Name + d.Origin + d.Destination)
+                    .attr("class", d.Name + "-connector connect")
+                    .attr("x1", vis.projection([d.x1, d.y1])[0])
+                    .attr("y1", vis.projection([d.x1, d.y1])[1])
+                    .attr("x2", vis.projection([d.x1, d.y1])[0])
+                    .attr("y2", vis.projection([d.x1, d.y1])[1])
+                    .style("stroke", "black")
+                    .style("stroke-dasharray", ("13, 3"))
+                    .style("opacity", 0.3)
+                    .style("stroke-width", 5)
+                    .on('mouseover', function() {
+                        vis.svg.selectAll("." + d.Name + "-connector")
+                            .style("opacity", 1);
+                    })
+                    .on('mouseout', function() {
+                        vis.svg.selectAll("." + d.Name + "-connector")
+                            .style("opacity", 0.3);
+                    });
+
+                vis.connectors.transition().duration(1000)
+                    .attr("x2", vis.projection([d.x2, d.y2])[0])
+                    .attr("y2", vis.projection([d.x2, d.y2])[1]);
+
+                array[i].displayed = "true";
+            }
+        }
+    });
+
 
     vis.camps = vis.svg.selectAll(".camps")
         .data(vis.displayedCamps);
@@ -213,18 +448,229 @@ MapChart.prototype.updateVis = function(){
         .attr("x", function(d) {return vis.projection([d.Long, d.Lat])[0]})
         .attr("y", function(d) {return vis.projection([d.Long, d.Lat])[1]})
         .attr("clip-path", "url(#map-clip)")
-        .attr("width", 8)
-        .attr("height", 8)
+        .attr("width", function(d) {
+            if (d.Camp_name === "Auschwitz-Birkenau") {
+                return 15;
+            }
+            else {return 8;}
+        })
+        .attr("height", function(d) {
+            if (d.Camp_name === "Auschwitz-Birkenau") {
+                return 15;
+            }
+            else {return 8;}
+        })
         .style("fill", "blue")
-        .style("opacity", 0.5)
-        .on('mouseover', vis.tip_camp.show)
-        .on('mouseout', vis.tip_camp.hide)
+        .style("opacity", function(d) {
+            if (d.Camp_name === "Auschwitz-Birkenau") {
+                return 1;
+            }
+            else {return 0.5;}
+        })
+        .on("mouseover", function(d) {
+            vis.tip.show(d);
+            addGlowSquare(d);
+        })
+        .on('mouseout', function(d) {
+            vis.tip.hide(d);
+            removeGlow();
+        })
         .on("click", function(d) { curObject = d;
             vis.zoom(d, zoomLevel, 'Camp');
         });
 
+
     vis.camps.exit().remove();
 
+    var arc = d3.arc()
+        .innerRadius(6)
+        .outerRadius(6)
+        .startAngle(0)
+        .endAngle(10);
+
+    var newArc = d3.arc()
+        .innerRadius(6)
+        .outerRadius(12)
+        .startAngle(0)
+        .endAngle(10);
+
+    var auschwitzArc = d3.arc()
+        .innerRadius(10)
+        .outerRadius(10)
+        .startAngle(0)
+        .endAngle(10);
+
+    var auschwitzNewArc = d3.arc()
+        .innerRadius(9)
+        .outerRadius(20)
+        .startAngle(0)
+        .endAngle(10);
+
+    vis.glowCircle = vis.svg.selectAll(".glow-circle")
+        .data(vis.glowPrisoners)
+        .enter().append("path")
+        .attr("class", "glow-circle")
+        .attr("d", arc)
+        .attr("transform", function(d) {
+            return "translate(" + vis.projection([d.Long, d.Lat])[0] + "," + vis.projection([d.Long, d.Lat])[1] + ")";
+        })
+        .style("fill", "yellow")
+        .style("stroke", "transparent")
+        .style("filter", "url(#glow)")
+        .style("fill-opacity", "0.3")
+        .transition().duration(1000)
+        .attr("d", newArc)
+        .transition().duration(1000)
+        .attr("d", arc)
+        .on("end", function() {
+            vis.svg.selectAll(".glow-circle").remove();
+        });
+
+    vis.glowSquare = vis.svg.selectAll(".glow-square")
+        .data(vis.glowCamps)
+        .enter().append("path")
+        .attr("class", "glow-square")
+        .attr("d", arc)
+        .attr("transform", function(d) {
+            return "translate(" + (vis.projection([d.Long, d.Lat])[0] + 4) + "," + (vis.projection([d.Long, d.Lat])[1] + 4) + ")";
+        })
+        .style("fill", "yellow")
+        .style("stroke", "transparent")
+        .style("filter", "url(#glow)")
+        .style("fill-opacity", function(d) {
+            if (d.Camp_name !== "Auschwitz-Birkenau") {
+                return "0.3";
+            }
+            else {
+                auschGlow(d);
+                return "0";
+            }
+        })
+        .transition().duration(1000)
+        .attr("d", newArc)
+        .transition().duration(1000)
+        .attr("d", arc)
+        .on("end", function() {
+            vis.svg.selectAll(".glow-square").remove();
+        });
+
+    function auschGlow (campData) {
+        vis.svg.append("path")
+            .attr("class", "ausch-glow")
+            .attr("d", auschwitzArc)
+            .attr("transform", function(d) {
+                return "translate(" + (vis.projection([campData.Long, campData.Lat])[0] + 7.5) + "," + (vis.projection([campData.Long, campData.Lat])[1] + 7.5) + ")";
+            })
+            .style("fill", "yellow")
+            .style("stroke", "transparent")
+            .style("filter", "url(#glow)")
+            .style("fill-opacity", "0.3")
+            .transition().duration(1000)
+            .attr("d", auschwitzNewArc)
+            .transition().duration(1000)
+            .attr("d", auschwitzArc)
+            .on("end", function() {
+                vis.svg.selectAll(".ausch-glow").remove();
+            });
+    }
+
+
+    function addGlowCircle(hoverData) {
+        vis.svg.append("path")
+            .attr("class", "mouse-glow")
+            .attr("d", newArc)
+            .attr("transform", function(d) {
+                return "translate(" + vis.projection([hoverData.Long, hoverData.Lat])[0] + "," + vis.projection([hoverData.Long, hoverData.Lat])[1] + ")";
+            })
+            .style("fill", "yellow")
+            .style("stroke", "transparent")
+            .style("filter", "url(#glow)")
+            .style("fill-opacity", "0.3");
+    }
+
+    function removeGlow () {
+        vis.svg.selectAll(".mouse-glow").remove();
+    }
+
+    function addGlowSquare(hoverData) {
+        if (hoverData.Camp_name !== "Auschwitz-Birkenau") {
+            vis.svg.append("path")
+                .attr("class", "mouse-glow")
+                .attr("d", newArc)
+                .attr("transform", function() {
+                    return "translate(" + (vis.projection([hoverData.Long, hoverData.Lat])[0] + 4) + "," + (vis.projection([hoverData.Long, hoverData.Lat])[1] + 4) + ")";
+                })
+                .style("fill", "yellow")
+                .style("stroke", "transparent")
+                .style("filter", "url(#glow)")
+                .style("fill-opacity", "0.3");
+        }
+        else {
+            vis.svg.append("path")
+                .attr("class", "mouse-glow")
+                .attr("d", auschwitzNewArc)
+                .attr("transform", function() {
+                    return "translate(" + (vis.projection([hoverData.Long, hoverData.Lat])[0] + 7.5) + "," + (vis.projection([hoverData.Long, hoverData.Lat])[1] + 7.5) + ")";
+                })
+                .style("fill", "yellow")
+                .style("stroke", "transparent")
+                .style("filter", "url(#glow)")
+                .style("fill-opacity", "0.3");
+        }
+
+    }
+
+    vis.textNames = vis.toList(vis.maxIndex);
+
+    for (var i = 0; i < vis.textNames.length; i++) {
+        if (vis.textNames[i][1] !== null) {
+            var associatedPoint = vis.prisonerData[i].Geopoints.filter(function(prisoner) {
+                return prisoner.index === vis.textNames[i][1];
+            });
+
+            vis.nameLabel = vis.svg.selectAll("." + vis.textNames[i][0])
+                .data(associatedPoint);
+
+            vis.nameLabel.enter()
+                .append("text")
+                .attr("class", function() {return vis.textNames[i][0];})
+                .merge(vis.nameLabel)
+                .transition().duration(1000)
+                .style("opacity", 1)
+                .attr("x", function(d) {
+                    if (d.Name === "Karl" && d.index !== 1) {
+                        return vis.projection([d.Long, d.Lat])[0] - 40;
+                    }
+                    if (d.Name === "Irene") {
+                        return vis.projection([d.Long, d.Lat])[0] + 17;
+                    }
+                    else {
+                        return vis.projection([d.Long, d.Lat])[0] + 10;
+                    }
+                })
+                .attr("y", function(d) {
+                    if (d.Name === "Etty") {
+                        return vis.projection([d.Long, d.Lat])[1] + 16;
+                    }
+                    if (d.Name === "Irene") {
+                        return vis.projection([d.Long, d.Lat])[1] + 20;
+                    }
+                    else {
+                        return vis.projection([d.Long, d.Lat])[1] - 7;
+                    }
+                })
+                .text(function(d) {return vis.textNames[i][0];});
+
+            vis.nameLabel.exit().remove();
+        }
+        else {
+            if (vis.nameLabel) {
+                vis.svg.selectAll("." + vis.textNames[i][0]).remove();
+            }
+        }
+    }
+
+    vis.svg.selectAll(".points").remove();
 
     vis.point = vis.svg.selectAll(".points")
         .data(vis.displayedPoints);
@@ -233,7 +679,7 @@ MapChart.prototype.updateVis = function(){
         .enter().append("circle")
         .attr("class", "points")
         .merge(vis.point)
-        .attr("r", 6)
+        .attr("r", 7)
         .attr("cx", function(d) {return vis.projection([d.Long, d.Lat])[0];})
         .attr("cy", function(d) {return vis.projection([d.Long, d.Lat])[1];})
         .style("fill", function(d) {
@@ -245,25 +691,61 @@ MapChart.prototype.updateVis = function(){
             }
         })
         .style("stroke", "black")
-        .on('mouseover', vis.tip_event.show)
-        .on('mouseout', vis.tip_event.hide)
         .on("click", function(d) { curObject = d;
             vis.zoom(d, zoomLevel, 'Event');
+        })
+        .on("mouseover", function(d) {
+            vis.pointTip.show(d);
+            addGlowCircle(d);
+        })
+        .on("mouseout", function(d) {
+            vis.pointTip.hide(d);
+            removeGlow();
         });
-
 
     vis.point.exit().remove();
 
+    vis.deathIcon = vis.svg.selectAll(".deaths")
+        .data(vis.deathPoints);
 
+
+    vis.deathIcon.enter().append("svg:image")
+        .attr("class", "death-image")
+        .merge(vis.deathIcon)
+        .attr("x", function(d) {return vis.projection([d.Long, d.Lat])[0] - 10;})
+        .attr("y", function(d) {return vis.projection([d.Long, d.Lat])[1] - 12;})
+        .attr("width", 20)
+        .attr("height", 20)
+        .attr("xlink:href", "img/death.png")
+        .on("click", function(d) { curObject = d;
+            vis.zoom(d, zoomLevel, 'Event');})
+        .on("mouseover", function(d) {
+            vis.pointTip.show(d);
+            addGlowCircle(d);
+        })
+        .on("mouseout", function(d) {
+            vis.pointTip.hide(d);
+            removeGlow();
+        });
+
+    vis.svg.selectAll(".death-image")
+        .style("opacity", function(d) {
+            if (vis.maxIndex[d.Name] === d.max_index && d.died === "true") {return 1; }
+            else {return 0;}
+        });
+
+    vis.deathIcon.exit().remove();
+
+    vis.svg.selectAll(".deathToll").remove();
 
     vis.deathToll = vis.svg.append("text")
+        .attr("class", "deathToll")
         .attr("x", vis.width/2)
         .attr("y", vis.height - 100)
         .attr("text-anchor", "middle")
         .style("fill", "white")
         .style("font-size", 30)
-        .text("DEATH TOLL");
-
+        .text("DEATH TOLL    " + vis.totalToDate);
 
 
     vis.ordinal = d3.scaleOrdinal()
@@ -290,7 +772,6 @@ MapChart.prototype.updateVis = function(){
 
     vis.legend.each(function(d, i) {
         if (d === 'Concentration Camp') {
-            console.log(d);
             vis.legend.append('rect')// NEW
                 .attr('width', function(d, i) {
                     if (d === 'Concentration Camp') {
@@ -305,7 +786,6 @@ MapChart.prototype.updateVis = function(){
                 .style('stroke', 'white');
         }
         else {
-            console.log('circle');
             vis.legend.append('circle')
                 .attr('r', function(d, i) {
                     if (d === 'Concentration Camp') {
@@ -321,8 +801,6 @@ MapChart.prototype.updateVis = function(){
                     return 'translate(10,10)';        // NEW
                 });
         }
-
-
     });
 
                                 // NEW
@@ -338,6 +816,10 @@ MapChart.prototype.updateVis = function(){
         })
         .text(function(d) { return d; });
 
+    vis.pastPrisoners = vis.displayedPoints;
+    vis.pastCamps = vis.displayedCamps;
+    vis.pastConnections = vis.connections;
+
 };
 
 MapChart.prototype.zoom = function(object, zoomed, objectType) {
@@ -347,16 +829,14 @@ MapChart.prototype.zoom = function(object, zoomed, objectType) {
     console.log($(vis.parentElement).width() + " is the parent div width at zoom, which is now");
 
 
-    console.log(object);
-
     if (!zoomed) {
         zoomLevel = true;
 
-        vis.projection
-            .center([object.Long, object.Lat])
-            .scale(9000);
+    vis.projection
+        .center([object.Long, object.Lat])
+        .scale(9000);
 
-        $('#myModal').modal('toggle');
+    $('#myModal').modal('toggle');
 
         if (objectType === 'Camp') {
             vis.fillCampModal(object);
@@ -373,17 +853,8 @@ MapChart.prototype.zoom = function(object, zoomed, objectType) {
             .center(vis.mapCenter)
             .scale(2100);
 
-
         $('.modal-content').remove();
-
-        // $('#eventPictureObject').remove();
-        // $('#eventDateObject').remove();
-        // $('#eventPersonNameObject').remove();
-        // $('#eventPlaceObject').remove();
-        // $('#eventDescriptionObject').remove();
-
     }
-
 
     vis.path.projection(vis.projection);
 
@@ -392,6 +863,7 @@ MapChart.prototype.zoom = function(object, zoomed, objectType) {
         .attr("d", vis.path)
         .style("fill", "darkgrey")
         .style("stroke", "lightgrey");
+
 
     vis.svg.selectAll(".points")
         .transition().duration(1000)
@@ -403,14 +875,77 @@ MapChart.prototype.zoom = function(object, zoomed, objectType) {
         .attr("x", function(d) {return vis.projection([d.Long, d.Lat])[0]})
         .attr("y", function(d) {return vis.projection([d.Long, d.Lat])[1]});
 
-    vis.svg.selectAll(".connections")
-        .transition().duration(1000)
-        .attr("x1", function(d) {return vis.projection([d[0], d[1]])[0];})
-        .attr("x2", function(d) {return vis.projection([d[2], d[3]])[0];})
-        .attr("y1", function(d) {return vis.projection([d[0], d[1]])[1];})
-        .attr("y2", function(d) {return vis.projection([d[2], d[3]])[1];});
+
+    vis.svg.selectAll(".picLabels")
+        .transition().duration(1200)
+        .style("opacity", function() {
+            if (vis.svg.selectAll(".picLabels").style("opacity") === "1") {
+                return "0";
+            }
+            else {
+                return "1";
+            }
+        });
+
+    vis.svg.selectAll(".death-image")
+        .transition().duration(1200)
+        .style("opacity", function() {
+            if (vis.svg.selectAll(".death-image").style("opacity") === "1") {
+                return "0";
+            }
+            else {
+                return "1";
+            }
+        });
+
+    vis.svg.selectAll(".connect")
+        .transition().duration(1200)
+        .style("opacity", function() {
+            if (vis.svg.selectAll(".connect").style("opacity") === "0.3") {
+                return "0";
+            }
+            else {
+                return "0.3";
+            }
+        });
+
+    vis.svg.selectAll(".picLines")
+        .transition().duration(1200)
+        .style("opacity", function() {
+            if (vis.svg.selectAll(".picLines").style("opacity") === "1") {
+                return "0";
+            }
+            else {
+                return "1";
+            }
+        });
+
+    vis.textNames.forEach(function(d) {
+        console.log(d);
+        vis.svg.selectAll("." + d[0])
+            .transition().duration(1200)
+            .style("opacity", function() {
+                if (vis.svg.selectAll("." + d[0]).style("opacity") === "1") {
+                    return "0";
+                }
+                else {
+                    return "1";
+                }
+            });
+    });
 
     vis.newGauge(updateVal);
+
+    vis.svg.selectAll(".deathToll").remove();
+
+    vis.deathToll = vis.svg.append("text")
+        .attr("class", "deathToll")
+        .attr("x", vis.width/2)
+        .attr("y", vis.height - 100)
+        .attr("text-anchor", "middle")
+        .style("fill", "white")
+        .style("font-size", 30)
+        .text("DEATH TOLL    " + numberFormatter(vis.totalToDate));
 
 };
 
@@ -468,8 +1003,6 @@ MapChart.prototype.fillModal = function(object) {
 
 
 }
-
-
 
 MapChart.prototype.fillCampModal = function(object) {
     var vis = this;
@@ -549,12 +1082,9 @@ MapChart.prototype.fillCampModal = function(object) {
     }
 };
 
-
-
 MapChart.prototype.zoomController = function(object) {
     var vis = this;
 }
-
 
 $('#myModal').on('hidden.bs.modal', function (e) {
     var vis = this;
@@ -640,9 +1170,7 @@ MapChart.prototype.generateTears = function(year) {
                 })
                 .remove();
         }
-
     });
-
 
     vis.updateGauge(year);
 };
@@ -668,24 +1196,23 @@ MapChart.prototype.updateGauge = function(year) {
     vis.svg.selectAll(".fill-gauge-cont").remove();
     vis.newGauge(updateVal);
 
-    vis.deathToll.remove();
+};
+//33 = 0 to 46 = 100
+MapChart.prototype.newGauge = function(value) {
+    var vis = this;
 
+    vis.gauge = vis.svg.call(d3.liquidfillgauge, value);
+
+    vis.svg.selectAll(".deathToll").remove();
 
     vis.deathToll = vis.svg.append("text")
+        .attr("class", "deathToll")
         .attr("x", vis.width/2)
         .attr("y", vis.height - 100)
         .attr("text-anchor", "middle")
         .style("fill", "white")
         .style("font-size", 30)
-        .text("DEATH TOLL");
-
-
-};
-//33 = 0 to 46 = 100
-MapChart.prototype.newGauge = function(value) {
-    var vis = this;
-    console.log("you in here?");
-    vis.gauge = vis.svg.call(d3.liquidfillgauge, value);
+        .text("DEATH TOLL    " + numberFormatter(vis.totalToDate));
 };
 
 MapChart.prototype.highlight = function(lineData) {
@@ -693,5 +1220,11 @@ MapChart.prototype.highlight = function(lineData) {
 
     vis.svg.selectAll("." + lineData[4]);
 
+};
+
+MapChart.prototype.toList = function(dict) {
+    return Object.keys(dict).map(function (key) {
+        return [key, dict[key]];
+    });
 };
 
