@@ -527,13 +527,14 @@ a:hover {color:#ccc; text-decoration:none}
     position: absolute;
     top: 20%;
     font-size: 20px;
+    z-index: 999999999999999;
 }
 
 #instructionEndModal {
     position: absolute;
     top: 20%;
     font-size: 20px;
-    z-index: 9999999999999;
+    z-index: 9999999999999999;
 }
 
 /*.creatorContainer {*/
@@ -544,7 +545,7 @@ a:hover {color:#ccc; text-decoration:none}
     position: absolute;
     top: 20%;
     font-size: 20px;
-    z-index: 9999999999999;
+    z-index: 9999999999999999;
 }
 
 .divHolder {
