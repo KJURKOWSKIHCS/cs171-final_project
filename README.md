@@ -1,9 +1,17 @@
 # CS 171 Final Project - In the Eyes of The Survivors
 URL to the project: https://kjurkowskihcs.github.io/cs171-final_project/
 
-URL to screencast:
+URL to screencast: https://youtu.be/0BZRKbifLls
 
 By Krystian Jurkowski, Karen Mardini, and Oskar Kocol
+
+# Notes Before Use
+
+Please disable Adblocker, as it has been known through our UX/UI testing to cause problems with the modals.
+
+If you are having trouble with the screen dimensions, try changing the window to fit the full content of your viewport, otherwise scaling it down. The project has been partially allocated for various screen sizes, but has been known to glitch in unique dimensions. Run the project on a normal laptop sized screen if possible.
+
+If the modals give you trouble when a button is clicked and nothing happens, try CTRL-SHIFT-R to do a hard refresh of the project, and then try the button again. Because of the immense amount of data, we have seen losses in modal transition states which cause errors in buttons that should trigger modals.
 
 # Overview of the project
 In the 20th century, the Nazi regime came to power and began a systematic extermination of European Jews and other ethnic groups that would become known as the Holocaust. Millions of innocent victims were killed, while others encountered horrors beyond our comprehension. In this interactive visualization, we hope to provide a way to share some of their stories, and exemplify just how horrific the Holocaust was. The project itself is comprised of an interactive map that shows the progression of paths of survivors and victims as years progress, while also showing the progression of concentration camps and deaths in the Holocaust. We focus on four individuals who experienced this traumatic event, and put a major emphasis on Auschwitz (which we make bigger than the other square camps). This is because the data was the best to find for Auschwitz, since it was the most well known and largest camp, which allowed us to create interactive visualizations in its modal.
